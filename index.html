@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,71 +13,94 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
-        .section-title {
-            @apply text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b-2 border-sky-500;
-        }
+
         .card {
+            /* Main section card style */
             @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
         }
+
         .tag {
-            @apply bg-sky-100 text-sky-700 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2;
+            /* Skills tags */
+            @apply bg-sky-100 text-sky-700 px-4 py-1 rounded-md text-sm font-medium;
         }
+
         .icon-link {
             @apply flex items-center text-gray-600 hover:text-sky-600 transition-colors duration-300;
         }
+
         .icon-link i {
             @apply mr-2 text-sky-500;
         }
-        .ai-assistant-header-btn { /* Renamed and restyled */
-            @apply mt-6 w-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center text-lg;
-            /* Made it larger, bolder, and added more shadow */
+
+        /* Project Card Sub-element Styles */
+        .project-icon-base {
+            font-size: 2.3rem;
+            /* Approx 48px */
+            @apply text-sky-400 mb-4;
         }
-        .ai-assistant-header-btn i {
-            @apply mr-3 text-xl; /* Larger icon */
+
+        .project-title {
+            @apply text-xl font-semibold text-white mb-2;
         }
-        .inline-ai-section {
-             @apply mt-4 p-6 border border-sky-200 rounded-lg bg-sky-50 shadow-inner;
+
+        .project-description {
+            @apply text-sm text-gray-300 mb-4 flex-grow; /* flex-grow allows description to take available space */
         }
-        /* Custom scrollbar */
+
+        .project-tech-tags-container {
+            @apply mb-5 flex flex-wrap justify-center gap-2;
+        }
+
+        .project-tech-tag { 
+            @apply text-xs bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded-full; 
+        }
+
+
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #888;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
     </style>
 </head>
+
 <body class="bg-gray-100 text-gray-700 leading-relaxed">
 
     <header class="bg-gray-700 text-white py-12 md:py-16">
         <div class="container mx-auto px-6 text-center">
-            <img 
-                src="https://raw.githubusercontent.com/m4milaad/Resume/main/IMG_2217.jpg" 
-                alt="Milad Ajaz Bhat" 
+            <img src="https://raw.githubusercontent.com/m4milaad/Resume/main/IMG_2217.jpg" alt="Milad Ajaz Bhat"
                 class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-gray-500 shadow-lg object-cover"
                 onerror="this.onerror=null; this.src='https://placehold.co/150x150/E2E8F0/718096?text=Photo+Error';">
-            
+
             <h1 class="text-4xl md:text-5xl font-bold mb-3 text-white">Milad Ajaz Bhat</h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-8">Aspiring AI Engineer & Web Developer</p>
-            <div class="flex flex-wrap justify-center space-x-0 sm:space-x-6 space-y-3 sm:space-y-0">
-                <a href="tel:+918899108592" class="icon-link !text-gray-50 bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded-md transition-colors duration-300 w-full sm:w-auto">
-                    <i class="fas fa-phone-alt !text-gray-200"></i> +91 8899108592
+            
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="tel:+918899108592"
+                    class="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-300">
+                    <i class="fas fa-phone-alt text-gray-200 mr-2"></i> +91 8899108592
                 </a>
-                <a href="mailto:mb4milad.bhattt@gmail.com" class="icon-link !text-gray-50 bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded-md transition-colors duration-300 w-full sm:w-auto">
-                    <i class="fas fa-envelope !text-gray-200"></i> mb4milad.bhattt@gmail.com
+                <a href="mailto:mb4milad.bhattt@gmail.com"
+                    class="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-300">
+                    <i class="fas fa-envelope text-gray-200 mr-2"></i> mb4milad.bhattt@gmail.com
                 </a>
-                <a href="https://www.linkedin.com/in/m4milaad/" target="_blank" rel="noopener noreferrer" class="icon-link !text-gray-50 bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded-md transition-colors duration-300 w-full sm:w-auto">
-                    <i class="fab fa-linkedin !text-gray-200"></i> LinkedIn Profile
+                <a href="https://www.linkedin.com/in/m4milaad/" target="_blank" rel="noopener noreferrer"
+                    class="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-300">
+                    <i class="fab fa-linkedin text-gray-200 mr-2"></i> LinkedIn Profile
                 </a>
             </div>
-             <p class="mt-4 text-gray-400 text-sm">Srinagar, Jammu and Kashmir, India</p>
+            <p class="mt-4 text-gray-400 text-sm">Srinagar, Jammu and Kashmir, India</p>
         </div>
     </header>
 
@@ -84,50 +108,35 @@
 
         <section id="summary" class="mb-12">
             <div class="card">
-                <h2 class="section-title">Summary</h2>
+                <h2 class="text-3xl font-semibold text-gray-800 mb-10 text-center">Summary</h2>
                 <p class="text-gray-600">
-                    Motivated and detail-oriented professional with a strong foundation in programming, web development, and electronics. Experienced in working with Arduino, Java, and Python, with hands-on projects involving smart systems and web dashboards. Quick to learn new technologies and passionate about building practical solutions that bridge hardware and software.
+                    Motivated and detail-oriented professional with a strong foundation in programming, web development,
+                    and electronics. Experienced in working with Arduino, Java, and Python, with hands-on projects
+                    involving smart systems and web dashboards. Quick to learn new technologies and passionate about
+                    building practical solutions that bridge hardware and software.
                 </p>
-                <div id="aiAssistantHeaderBtn" class="ai-assistant-header-btn" role="button" tabindex="0" aria-label="Ask My AI Assistant">
-                    <i class="fas fa-robot"></i> ✨ Ask My AI Assistant
-                </div>
-
-                <div id="inlineAiSection" class="inline-ai-section">
-                    <div class="mb-4">
-                        <label for="aiQuestion" class="block text-sm font-medium text-gray-700 mb-1">Your Question:</label>
-                        <input type="text" id="aiQuestion" name="aiQuestion" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm" placeholder="e.g., What are Milad's key skills?">
-                    </div>
-                    <button id="submitAiQuestionBtn" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-md shadow-sm transition-colors duration-300 flex items-center justify-center">
-                        <i class="fas fa-paper-plane mr-2"></i> Ask AI
-                    </button>
-                    <div id="aiResponseArea" class="mt-6 p-4 border border-gray-200 rounded-md bg-white min-h-[100px] text-sm text-gray-700 whitespace-pre-wrap">
-                        Ask a question about Milad's resume to get started...
-                    </div>
-                    <div id="aiLoadingIndicator" class="mt-4 text-center text-sky-600 hidden">
-                        <i class="fas fa-spinner fa-spin mr-2"></i> Thinking...
-                    </div>
-                    <div id="aiErrorIndicator" class="mt-4 text-center text-red-600 hidden">
-                        <i class="fas fa-exclamation-triangle mr-2"></i> Oops! Something went wrong. Please try again.
-                    </div>
-                </div>
             </div>
         </section>
 
         <section id="skills" class="mb-12">
             <div class="card">
-                <h2 class="section-title">Skills</h2>
-                <div class="flex flex-wrap">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-10 text-center">Skills</h2>
+                <div class="flex flex-wrap gap-3 justify-center">
                     <span class="tag">Python (Core Strength)</span>
                     <span class="tag">Java</span>
                     <span class="tag">C</span>
                     <span class="tag">C++ (Learning)</span>
                     <span class="tag">JavaScript</span>
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">Tailwind CSS</span>
                     <span class="tag">Arduino C</span>
                     <span class="tag">Object-Oriented Programming (OOP)</span>
                     <span class="tag">Embedded Systems</span>
                     <span class="tag">Web Development</span>
+                    <span class="tag">Responsive Design</span>
+                    <span class="tag">DNS Management</span>
+                    <span class="tag">Site Monitoring</span>
                     <span class="tag">CLion</span>
                     <span class="tag">Problem-Solving</span>
                     <span class="tag">Detail-Oriented</span>
@@ -138,60 +147,152 @@
 
         <section id="projects" class="mb-12">
             <div class="card">
-                <h2 class="section-title">Projects</h2>
+                <h2 class="text-3xl font-semibold text-gray-800 mb-10 text-center">Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">Banking System</h3>
-                        <p class="text-sm text-gray-600 mb-2">Developed an object-oriented banking system application using Java.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Java</span>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">OOP</span>
+                    <div
+                        class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]"> 
+                        <i class="fas fa-address-card project-icon-base"></i>
+                        <h3 class="project-title">Online Resume (This Site)</h3>
+                        <p class="project-description">Developed this personal online resume website. Features a
+                            responsive design and is built with HTML, Tailwind CSS, and JavaScript.</p>
+                        <div class="project-tech-tags-container">
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">HTML</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Tailwind CSS</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">JavaScript</span>
+                        </div>
+                        <div class="mt-auto w-full flex justify-center">
+                            <button onclick="window.location.href='#';" aria-label="View details of this online resume"
+                                class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span
+                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
+                                    View Details
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">BlackJack</h3>
-                        <p class="text-sm text-gray-600 mb-2">A command-line version of the classic card game.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
+
+                    <div
+                        class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]">
+                        <i class="fas fa-globe project-icon-base"></i>
+                        <h3 class="project-title">Personal Website: yge.ct.ws</h3>
+                        <p class="project-description">Deployed a personal website using HTML, CSS, and JavaScript on
+                            InfinityFree. Implemented responsive design and managed DNS.</p>
+                        <div class="project-tech-tags-container">
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">HTML</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">CSS</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">JavaScript</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">DNS</span>
+                        </div>
+                        <div class="mt-auto w-full flex justify-center">
+                            <button onclick="window.open('https://yge.ct.ws/', '_blank');"
+                                aria-label="Visit personal website yge.ct.ws"
+                                class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span
+                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
+                                    Visit Site
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">Caesar Cipher</h3>
-                        <p class="text-sm text-gray-600 mb-2">Implemented the Caesar cipher encryption technique.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
+
+                    <div
+                        class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]"> 
+                        <i class="fas fa-university project-icon-base"></i>
+                        <h3 class="project-title">Banking System</h3>
+                        <p class="project-description">Developed an object-oriented banking system application using
+                            Java.</p>
+                        <div class="project-tech-tags-container">
+                           <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Java</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">OOP</span>
+                        </div>
+                        <div class="mt-auto w-full flex justify-center">
+                            <button onclick="window.location.href='#';"
+                                aria-label="View Banking System project details (placeholder link)"
+                                class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span
+                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
+                                    View Project
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">Coffee Machine (OOP)</h3>
-                        <p class="text-sm text-gray-600 mb-2">Simulated a coffee machine's operations with an object-oriented approach.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">OOP</span>
+
+                    <div
+                        class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]"> 
+                        <i class="fas fa-dice project-icon-base"></i>
+                        <h3 class="project-title">BlackJack Game</h3>
+                        <p class="project-description">A command-line version of the classic BlackJack card game, built
+                            with Python.</p>
+                        <div class="project-tech-tags-container">
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
+                        </div>
+                        <div class="mt-auto w-full flex justify-center">
+                            <button onclick="window.location.href='#';"
+                                aria-label="View BlackJack project details (placeholder link)"
+                                class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span
+                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
+                                    View Project
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">Hirst Painting Generator</h3>
-                        <p class="text-sm text-gray-600 mb-2">Creates dot paintings inspired by Damien Hirst using Python's turtle module.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Turtle Graphics</span>
+
+                    <div
+                        class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]"> 
+                        <i class="fas fa-key project-icon-base"></i>
+                        <h3 class="project-title">Caesar Cipher</h3>
+                        <p class="project-description">Implemented the Caesar cipher encryption and decryption technique
+                            using Python.</p>
+                        <div class="project-tech-tags-container">
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Cryptography</span>
+                        </div>
+                        <div class="mt-auto w-full flex justify-center">
+                            <button onclick="window.location.href='#';"
+                                aria-label="View Caesar Cipher project details (placeholder link)"
+                                class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span
+                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
+                                    View Project
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">Pong Game</h3>
-                        <p class="text-sm text-gray-600 mb-2">A recreation of the classic Pong game.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
+
+                    <div
+                        class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]"> 
+                        <i class="fas fa-coffee project-icon-base"></i>
+                        <h3 class="project-title">OOP Coffee Machine</h3>
+                        <p class="project-description">Simulated a coffee machine's operations with an object-oriented
+                            approach in Python.</p>
+                        <div class="project-tech-tags-container">
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">OOP</span>
+                        </div>
+                        <div class="mt-auto w-full flex justify-center">
+                            <button onclick="window.location.href='#';"
+                                aria-label="View Coffee Machine project details (placeholder link)"
+                                class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span
+                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
+                                    View Project
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                     <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">Snake Game</h3>
-                        <p class="text-sm text-gray-600 mb-2">A version of the classic Snake game.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
-                    </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">Peek Hour</h3>
-                        <p class="text-sm text-gray-600 mb-2">Analyzes or simulates peak hours. *(Consider adding more detail if available)*</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
-                    </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">States Guessing Game</h3>
-                        <p class="text-sm text-gray-600 mb-2">A game that challenges users to guess U.S. states.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
-                    </div>
-                    <div class="border border-gray-200 p-4 rounded-md hover:shadow-md transition-shadow duration-300">
-                        <h3 class="text-lg font-semibold text-sky-700 mb-1">And Many More...</h3>
-                        <p class="text-sm text-gray-600 mb-2">Including: Hangman, Higher or Lower, Mail Merge, Number Guessing, Quiz Game, Password Generator, Rock Paper Scissor, Silent Auction, Calculator, Tip Calculator, Treasure Island, Turtle Race.</p>
-                        <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">Python</span>
+
+                    <div
+                        class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl flex flex-col items-center text-center min-h-[300px]"> 
+                        <i class="fas fa-ellipsis-h project-icon-base"></i>
+                        <h3 class="project-title">And Many More...</h3>
+                        <p class="project-description">Including: Hirst Painting Generator, Pong Game, Snake Game, Peek
+                            Hour, States Guessing Game, Hangman, Higher or Lower, Mail Merge, Number Guessing, Quiz
+                            Game, Password Generator, Rock Paper Scissor, Silent Auction, Calculator, Tip Calculator,
+                            Treasure Island, Turtle Race.</p>
+                        <div class="project-tech-tags-container">
+                            <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,27 +300,46 @@
 
         <section id="experience" class="mb-12">
             <div class="card">
-                <h2 class="section-title">Work Experience</h2>
+                <h2 class="text-3xl font-semibold text-gray-800 mb-10 text-center">Work Experience</h2>
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-700">Freelance Web Developer</h3>
-                    <p class="text-md text-sky-600 italic">Client Project | [Specify Dates, e.g., Jan 2024 - Mar 2024]</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li>Developed a [type of website, e.g., business portfolio, informational] website for a client.</li>
-                        <li>Utilized HTML, CSS, and JavaScript to create a responsive and user-friendly interface.</li>
-                        <li>(Add another specific responsibility or achievement if possible, e.g., "Integrated a contact form" or "Optimized images for faster loading")</li>
+                    <h3 class="text-xl font-semibold text-gray-700">Freelance Web Developer & AI Enthusiast</h3>
+                    <p class="text-md text-sky-600 italic">Personal Projects | 2023 - Present</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-2">
+                        <li>
+                            <strong>Personal Website Project: <a href="https://yge.ct.ws/" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sky-600 hover:underline">yge.ct.ws</a></strong> (2025)
+                            <ul class="list-disc list-inside ml-6 mt-1 text-sm space-y-1">
+                                <li>Developed and deployed a personal website using HTML, CSS, and JavaScript on
+                                    InfinityFree's free hosting platform.</li>
+                                <li>Implemented responsive design principles to ensure optimal viewing across various
+                                    devices.</li>
+                                <li>Configured DNS settings and managed domain-related issues, including addressing
+                                    accessibility challenges due to the hosting domain's reputation.</li>
+                                <li>Monitored site performance and uptime, ensuring consistent availability and swift
+                                    load times.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Developed this interactive online resume website:</strong>
+                            <ul class="list-disc list-inside ml-6 mt-1 text-sm space-y-1">
+                                <li>Designed and built a responsive, single-page application using HTML, Tailwind CSS,
+                                    and modern JavaScript.</li>
+                                <li>Focused on creating a clean, user-friendly interface to effectively showcase skills,
+                                    projects, and educational background.</li>
+                            </ul>
+                        </li>
                     </ul>
-                    <p class="mt-2 text-sm text-gray-500">
-                        *Please replace bracketed information with specific details about your project.*
-                    </p>
                 </div>
             </div>
         </section>
 
         <section id="education" class="mb-12">
             <div class="card">
-                <h2 class="section-title">Education</h2>
+                <h2 class="text-3xl font-semibold text-gray-800 mb-10 text-center">Education</h2>
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-700">Bachelor of Technology (B.Tech) - Computer Science & Engineering</h3>
+                    <h3 class="text-xl font-semibold text-gray-700">Bachelor of Technology (B.Tech) - Computer Science &
+                        Engineering</h3>
                     <p class="text-md text-sky-600">Central University of Kashmir, Ganderbal</p>
                     <p class="text-gray-600">Major: Artificial Intelligence</p>
                     <p class="text-gray-500">Expected Graduation: July 2027</p>
@@ -229,7 +349,7 @@
 
         <section id="awards" class="mb-12">
             <div class="card">
-                <h2 class="section-title">Awards and Recognition</h2>
+                <h2 class="text-3xl font-semibold text-gray-800 mb-10 text-center">Awards and Recognition</h2>
                 <div>
                     <h3 class="text-xl font-semibold text-gray-700">3rd Rank - University Coding Competition</h3>
                     <p class="text-md text-sky-600">Central University of Kashmir</p>
@@ -246,112 +366,10 @@
     </footer>
 
     <script>
+        // Set the current year in the footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // AI Assistant (Inline) Logic
-        // Note: Removed variables and event listeners related to the modal.
-        // The 'openAiAssistantBtn' is now 'aiAssistantHeaderBtn' and is a static element.
-        const submitAiQuestionBtn = document.getElementById('submitAiQuestionBtn');
-        const aiQuestionInput = document.getElementById('aiQuestion');
-        const aiResponseArea = document.getElementById('aiResponseArea');
-        const aiLoadingIndicator = document.getElementById('aiLoadingIndicator');
-        const aiErrorIndicator = document.getElementById('aiErrorIndicator');
-        
-        // Resume content for AI context (condensed) - Stays the same
-        const resumeContext = `
-Name: Milad Ajaz Bhat
-Contact: Phone: +91 8899108592, Email: mb4milad.bhattt@gmail.com, LinkedIn: https://www.linkedin.com/in/m4milaad/, Location: Srinagar, Jammu and Kashmir, India
-Summary: Motivated and detail-oriented professional with a strong foundation in programming, web development, and electronics. Experienced in working with Arduino, Java, and Python, with hands-on projects involving smart systems and web dashboards. Quick to learn new technologies and passionate about building practical solutions that bridge hardware and software.
-Skills: Python (Core Strength), Java, C, C++ (Learning), JavaScript, HTML, CSS, Arduino C, Object-Oriented Programming (OOP), Embedded Systems, Web Development, CLion, Problem-Solving, Detail-Oriented, Quick Learner.
-Projects:
-- Banking System (Java): Developed an object-oriented banking system application.
-- BlackJack (Python): A command-line version of the classic card game.
-- Caesar Cipher (Python): Implemented the Caesar cipher encryption technique.
-- Coffee Machine (OOP) (Python): Simulated a coffee machine's operations with an object-oriented approach.
-- Hirst Painting Generator (Python & Turtle Module): Creates dot paintings inspired by Damien Hirst.
-- Pong Game (Python): A recreation of the classic Pong game.
-- Snake Game (Python): A version of the classic Snake game.
-- Peek Hour (Python): Analyzes or simulates peak hours.
-- States Guessing Game (Python): A game that challenges users to guess U.S. states.
-- And Many More Python projects including: Hangman, Higher or Lower, Mail Merge, Number Guessing, Quiz Game, Password Generator, Rock Paper Scissor, Silent Auction, Calculator, Tip Calculator, Treasure Island, Turtle Race.
-Work Experience: Freelance Web Developer - Client Project. Developed a website for a client using HTML, CSS, JavaScript. (Please ask Milad for specific dates and more details on this project if needed).
-Education: Bachelor of Technology (B.Tech) in Computer Science & Engineering, Major: Artificial Intelligence, Central University of Kashmir, Ganderbal, Expected Graduation: July 2027.
-Awards: 3rd Rank - University Coding Competition, Central University of Kashmir.
-        `.trim();
-
-        submitAiQuestionBtn.addEventListener('click', async () => {
-            const userQuestion = aiQuestionInput.value.trim();
-            if (!userQuestion) {
-                aiResponseArea.textContent = "Please enter a question.";
-                return;
-            }
-
-            aiLoadingIndicator.classList.remove('hidden');
-            aiErrorIndicator.classList.add('hidden');
-            aiResponseArea.textContent = ""; // Clear previous response
-
-            const prompt = `You are an AI assistant for Milad Ajaz Bhat's interactive resume.
-Based ONLY on the following information about Milad, please answer the user's question.
-If the information is not available in the provided text, state that the information is not available in the resume.
-Keep your answers concise and directly based on the resume content. Do not make up information.
-
-Milad's Resume Information:
----
-${resumeContext}
----
-
-User's Question: ${userQuestion}
-
-Answer:`;
-
-            try {
-                let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-                const payload = { contents: chatHistory };
-                const apiKey = ""; // API key will be injected by the environment if needed for models other than gemini-2.0-flash
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    console.error("API Error Details:", errorData);
-                    throw new Error(`API request failed with status ${response.status}. Check console for details.`);
-                }
-
-                const result = await response.json();
-                
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    aiResponseArea.textContent = text;
-                } else {
-                    console.error("Unexpected API response structure:", result);
-                    aiResponseArea.textContent = "Sorry, I couldn't get a response. The API returned an unexpected structure.";
-                }
-
-            } catch (error) {
-                console.error("Error calling Gemini API:", error);
-                aiErrorIndicator.classList.remove('hidden');
-                aiResponseArea.textContent = "An error occurred while trying to get an answer. Please check the console for more details or try again later.";
-            } finally {
-                aiLoadingIndicator.classList.add('hidden');
-            }
-        });
-
-        // Allow submitting with Enter key in the input field
-        aiQuestionInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault(); 
-                submitAiQuestionBtn.click();
-            }
-        });
-
     </script>
 
 </body>
+
 </html>
