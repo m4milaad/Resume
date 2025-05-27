@@ -21,7 +21,7 @@ canvas {
     translate: -50% -50%;
 
     color: white;
-    font-size: 3vh;
+    font-size: 3.5vh; /* Increased from 3vh */
     text-align: center;
     
     background-color: black;
@@ -33,7 +33,7 @@ canvas {
 }
 
 #MainButton:hover {
-    font-size: 4vh;
+    font-size: 4.5vh; /* Increased from 4vh */
 }
 
 #MainDiv {
@@ -55,9 +55,9 @@ canvas {
 }
 
 #LeftPanel {
-    width: calc(50vw - 20vh); /* Width of the panel itself */
+    width: calc(50vw - 20vh); 
     height: 100%;
-    left: 20vh; /* Space to the left of the panel */
+    left: 20vh; 
     position: absolute;
     margin-top: 10vh;
     pointer-events: none;
@@ -66,21 +66,20 @@ canvas {
 #RightPanel {
     height: 100%;
     position: absolute;
-    left: 50vw;   /* Start panel where LeftPanel conceptually ends */
-    right: 0;     /* Panel box extends to viewport right edge */
-    width: auto;  /* Width will be 50vw */
+    left: 50vw;   
+    right: 0;     
+    width: auto;  
     
-    /* padding-top, padding-right (as requested), padding-bottom, padding-left */
     padding: 10vh 20vh 0 2vh; 
 
     overflow-y: scroll;
     overflow-x: hidden;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
 }
 
 #RightPanel::-webkit-scrollbar{
-    display: none; /* Safari and Chrome */
+    display: none; 
 }
 
 #MouseGlow {
@@ -105,7 +104,7 @@ canvas {
 }
 
 h1 {
-    font-size: 6.5vh; 
+    font-size: 7.0vh; /* Increased from 6.5vh */
     margin: 0 0 1vh 0;
     color: white;
     font-weight: bold;
@@ -113,7 +112,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5vh; 
+    font-size: 2.8vh; /* Increased from 2.5vh */
     margin: 0 0 1.5vh 0;
     color: white;
     font-weight: normal;
@@ -121,10 +120,10 @@ h2 {
 }
 
 p {
-    font-size: 2vh; 
+    font-size: 2.0vh; /* Increased from 1.8vh */
     margin: 0;
     color: gray;
-    line-height: 2.7vh; 
+    line-height: 3.0vh; /* Increased from 2.7vh */
     pointer-events: auto;
 }
 
@@ -159,7 +158,7 @@ m {
 
 .NavItemText {
     margin-left: 1.1vh;
-    font-size: 1.8vh; 
+    font-size: 2.0vh; /* Increased from 1.8vh */
     color: gray;
     transition: color 0.3s ease;
 }
@@ -215,7 +214,7 @@ m {
 
 .Project p {
     user-select: none;
-    font-size: 1.6vh; 
+    font-size: 1.8vh; /* Increased from 1.6vh */
     color: gray;
 }
 
