@@ -1,4 +1,3 @@
-
 // All previous outputs from commands and such
 let OutputsText = "";
 // Lets user scroll through the past outputs
@@ -143,25 +142,23 @@ function BootSequence() {
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
-// File system structure (unchanged)
 const FileSystem = {
     "root": {
         type: "directory", contents: {
-
             "projects": {
                 type: "directory", contents: {
-                    "projects.txt": { type: "file", content: "Below are some of the projects I have developed over\nmy 6+ years of coding. This is just a small selection\nof the many projects I've worked on, with several\nothers not making the list. Please note that some of\nthese projects are unfinished—either because I lacked\nthe necessary skills at the time or simply moved on to\nmore interesting challenges. However, rest assured I\nplan to revisit and polish these projects in the future\nimproving their code with my current level of expertise." },
-                    "lighting_engine.lnk": { type: "link", content: "https://github.com/LuckeyDuckey/Pygame_Lighting_Engine" },
-                    "wakeword_engine.lnk": { type: "link", content: "https://github.com/LuckeyDuckey/Python-Wake-Word-Engine" },
-                    "square_game_halloween.lnk": { type: "link", content: "https://github.com/LuckeyDuckey/Square-Game-Halloween" },
-                    "personal_website.lnk": { type: "link", content: "https://github.com/LuckeyDuckey/luckeyduckey.github.io/tree/main" },
-                    "password_vault.lnk": { type: "link", content: "https://github.com/LuckeyDuckey/Password-Vault" },
-                    "jarvis.lnk": { type: "link", content: "https://github.com/LuckeyDuckey/Jarvis" },
+                    "projects.txt": { type: "file", content: "This section contains links to various projects I have worked on.\nUse 'start <project_name.lnk>' to open a project link in your browser.\nDetails about each project are implicitly available by visiting the links." },
+                    "online_resume.lnk": { type: "link", content: "#", description: "Online Resume (This Site): Developed this personal online resume website. Features a responsive design and is built with HTML, Tailwind CSS, and JavaScript." },
+                    "yge_website.lnk": { type: "link", content: "https://yge.ct.ws/", description: "Website: Yuva Global Enterprises: Deployed a website using HTML, CSS, and JavaScript on InfinityFree. Implemented responsive design and managed DNS." },
+                    "banking_system.lnk": { type: "link", content: "https://github.com/m4milaad/Banking-System-", description: "Banking System: Developed an object-oriented banking system application using Java." },
+                    "blackjack_game.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/BlackJack", description: "BlackJack Game: A command-line version of the classic BlackJack card game, built with Python." },
+                    "states_game.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/States%20Guessing%20Game", description: "States Guessing Game: This Python script is an interactive game that challenges users to guess all 50 U.S. states." },
+                    "coffee_machine.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/Coffee%20Machine", description: "OOP Coffee Machine: Simulated a coffee machine's operations with an object-oriented approach in Python." },
+                    "more_projects.txt": { type: "file", content: "Many More Projects Including: Hirst Painting Generator, Pong Game, Snake Game, Peek Hour, Caesar Cipher, Hangman, Higher or Lower, Mail Merge, Number Guessing, Quiz Game, Password Generator, Rock Paper Scissor, Silent Auction, Calculator, Tip Calculator, Treasure Island, Turtle Race. (Primarily Python)" }
                 }
             },
-
-            "about.txt": { type: "file", content: "I’m an aspiring software developer with a passion\nfor exploring the vast possibilities of programming.\nI’ve been coding since I was 12, starting with small\ngames in Python and evolving into a diverse range of\nprojects. Over the years, I’ve delved into AI,\nmachine learning, graphics programming, cybersecurity\nand web development. My experience spans from creating\nvirtual assistants and VR applications to developing\nshaders and procedurally generated visuals. I’m driven\nby a love for technology and a desire to learn, create\nand solve complex problems. I’m proficient in Python\nC++, JavaScript, and C#, with Python being my\nstrongest language." },
-            "experience.txt": { type: "file", content: "Error 404 not found. That's right I have no\nprofessional in industry experience, however I still\nbring over 6 years of hands-on experience in coding\nand software development from personal projects and\nself-driven learning. I’ve tackled a wide range of\nchallenges, from developing AI-powered virtual\nassistants and machine learning models to creating\ngraphics and VR applications. My projects have allowed\nme to build strong skills in Python, C++, JavaScript\nand C#, and I’ve gained a solid foundation in problem\nsolving, collaboration, and adaptability. I’m eager\nto apply my knowledge and passion for technology in\na professional setting, where I can continue to learn\nand grow as a software developer." },
+            "about.txt": { type: "file", content: "Driven and detail-oriented technologist with a solid foundation in programming, embedded systems,\nand full-stack web development. Proficient in Python (core strength), C, Java, JavaScript, and C++,\nwith hands-on experience in building responsive web dashboards, smart IoT systems using Arduino, and\nrobust software solutions. Adept at object-oriented design, DNS management, and site monitoring,\nwith a strong command of tools like CLion, IntelliJ and Pycharm and modern frameworks like Tailwind\nCSS, Pandas and more. A quick learner and natural problem solver, passionate about bridging hardware\nand software to create impactful,real-world applications. Known for clear communication, leadership,\nand a commitment to delivering high-quality results." },
+            "experience.txt": { type: "file", content: "Freelance Web Developer & AI Enthusiast\n\nProfessional Projects | 2023 - Present\n- Website Project: Yuva Global Enterprises (2025)\n  - Developed and deployed a website for a local business using HTML, CSS, and JavaScript on\n    InfinityFree's free hosting platform.\n  - Implemented responsive design principles to ensure optimal viewing across various devices.\n  - Configured DNS settings and managed domain-related issues, including addressing\n    accessibility challenges due to the hosting domain's reputation.\n  - Monitored site performance and uptime, ensuring consistent availability and swift load times.\n\nPersonal Projects | 2023 - Present\n- Developed this interactive online resume website:\n  - Designed and built a responsive, single-page application using HTML, Tailwind CSS, and\n    modern JavaScript.\n  - Focused on creating a clean, user-friendly interface to effectively showcase skills,\n    projects, and educational background." },
             "plasma.exe": { type: "executable", content: "plasma" },
         }
     },
@@ -212,21 +209,24 @@ function StartFile(InputFile) {
     let DirectoryContents = FileSystem.root;
     for (let Dir of Directory.slice(15).split("/").filter(Boolean)) { DirectoryContents = DirectoryContents.contents[Dir]; }
 
-    // Perform action based on what file is opened
-    if (DirectoryContents.contents[InputFile] && DirectoryContents.contents[InputFile].type === "file") {
-        OutputsText += `\n${DirectoryContents.contents[InputFile].content}\n\n`;
-    }
+    const fileData = DirectoryContents.contents[InputFile];
 
-    else if (DirectoryContents.contents[InputFile] && DirectoryContents.contents[InputFile].type === "link") {
-        OutputsText += `\nRedirecting to '${DirectoryContents.contents[InputFile].content}'\n\n`;
-        window.open(DirectoryContents.contents[InputFile].content);
+    if (fileData) {
+        if (fileData.type === "file") {
+            OutputsText += `\n${fileData.content}\n\n`;
+        } else if (fileData.type === "link") {
+            OutputsText += `\nOpening link: ${fileData.content}\n`;
+            if (fileData.description) {
+                 OutputsText += `Description: ${fileData.description}\n\n`;
+            } else {
+                OutputsText += `\n`;
+            }
+            window.open(fileData.content);
+        } else if (fileData.type === "executable") {
+            OutputsText += `\n'${InputFile}' Started successfully\n\n`;
+            DisplayPlasma = true;
+        }
     }
-
-    else if (DirectoryContents.contents[InputFile] && DirectoryContents.contents[InputFile].type === "executable") {
-        OutputsText += `\n'${InputFile}' Started successfully\n\n`;
-        DisplayPlasma = true;
-    }
-
     // Selected file dousnt exist
     else { OutputsText += `\nstart: '${InputFile}' No such file\n\n`; }
 }
@@ -236,8 +236,9 @@ function ExecuteCommand() {
     const [Command, ...Arguments] = InputText.split(" ");
 
     if (Command) {
-        ComputerBeep.play();
-        ComputerBeep.currentTime = 0;
+        // Assuming ComputerBeep is defined elsewhere, if not, this will cause an error.
+        // ComputerBeep.play();
+        // ComputerBeep.currentTime = 0;
     }
 
     switch (Command) {
@@ -248,22 +249,24 @@ function ExecuteCommand() {
 
         case "cd":
             if (Arguments.length > 1) { OutputsText += "\nError: 'cd' doesn't accept more that one argument\n\n"; }
+            else if (!Arguments.length) { OutputsText += "\nError: 'cd' requires a directory argument\n\n"; }
             else { ChangeDirectory(Arguments[0]); }
             break;
 
         case "start":
             if (Arguments.length > 1) { OutputsText += "\nError: 'start' doesn't accept more that one argument\n\n"; }
+            else if (!Arguments.length) { OutputsText += "\nError: 'start' requires a file argument\n\n"; }
             else { StartFile(Arguments[0]); }
             break;
 
         case "clear":
             if (Arguments.length) { OutputsText += "\nError: 'clear' doesn't accept any arguments\n\n"; }
-            else { BootSequence(); }
+            else { BootSequence(); } // This will clear most text and show boot sequence
             break;
 
         case "help":
             if (Arguments.length) { OutputsText += "\nError: 'help' doesn't accept any arguments\n\n"; }
-            else { OutputsText += "\nPress 'tab' for auto complete and press 'esc' to exit\na program (.exe file)\n\nLS       Lists current directory contents\nCD       Change directory, '..' moves back, '/' to root\nSTART    Opens specified file in current directory\nCLEAR    Clears all previous terminal outputs\n\n"; }
+            else { OutputsText += "\nPress 'tab' for auto complete and press 'esc' to exit\na program (.exe file)\n\nLS       Lists current directory contents\nCD       Change directory, '..' moves back, '/' to root\nSTART    Opens specified file or link in current directory\nCLEAR    Clears all previous terminal outputs\n\n"; }
             break;
 
         case "":
@@ -276,25 +279,33 @@ function ExecuteCommand() {
 
 // Autocomplete function
 function AutoComplete() {
-    const [Command, ...Arguments] = InputText.split(" ");
-    const CommandsList = ["ls", "cd", "start", "clear"];
+    const [Command, Argument1] = InputText.split(" "); // Use Argument1 to avoid redeclaring Arguments
+    const CommandsList = ["ls", "cd", "start", "clear", "help"];
 
     // Auto completing a command
-    if (!Arguments.length) {
-        const CompletededCommand = CommandsList.filter(Element => Element.startsWith(Command));
-        if (CompletededCommand.length) { InputText = CompletededCommand[0] };
+    if (InputText.split(" ").length === 1) {
+        const CompletedCommand = CommandsList.filter(Element => Element.startsWith(Command));
+        if (CompletedCommand.length === 1) { InputText = CompletedCommand[0] + " "; }
+        else if (CompletedCommand.length > 1) {
+            OutputsText += `\n${Directory}> ${InputText}\n`;
+            OutputsText += CompletedCommand.join("  ") + "\n";
+        }
     }
 
-    // Auto comepleting a file name
-    if (["cd", "start"].includes(Command) && Arguments.length < 2) {
-        // Move to current folder
+    // Auto comepleting a file name for 'cd' or 'start'
+    else if (["cd", "start"].includes(Command) && InputText.split(" ").length === 2) {
         let DirectoryContents = FileSystem.root;
         for (let Dir of Directory.slice(15).split("/").filter(Boolean)) { DirectoryContents = DirectoryContents.contents[Dir]; }
 
-        // Possible file names
-        const PossibleCompletions = Object.keys(DirectoryContents.contents).filter(Item => Item.startsWith(Arguments));
-        if (PossibleCompletions.length) { InputText = `${Command} ${PossibleCompletions[0]}`; }
+        const PossibleCompletions = Object.keys(DirectoryContents.contents).filter(Item => Item.startsWith(Argument1));
+        
+        if (PossibleCompletions.length === 1) { InputText = `${Command} ${PossibleCompletions[0]}`; }
+        else if (PossibleCompletions.length > 1) {
+            OutputsText += `\n${Directory}> ${InputText}\n`;
+            OutputsText += PossibleCompletions.join("  ") + "\n";
+        }
     }
+     Blinker.Index = InputText.length; // Ensure blinker is at the end after autocomplete
 }
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
@@ -317,7 +328,7 @@ function GetTextPlasma() {
 
 function GetIntensityPlasma(Row, Col) {
     let Intensity = 0.0;
-
+    // Assuming 'Time' is a global variable updated elsewhere (e.g., in a main loop)
     Intensity += 0.7 * Math.sin(0.5 * Row + Time / 5);
     Intensity += 3 * Math.sin(1.6 * Col + Time / 5);
     Intensity += 1 * Math.sin(10 * (Col * Math.sin(Time / 2) + Row * Math.cos(Time / 5)) + Time / 2);
