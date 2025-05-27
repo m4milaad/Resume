@@ -1,0 +1,223 @@
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#MainButton {
+    width: 7.5vh;
+    height: 7.5vh;
+
+    position: fixed;
+    left: 50vw;
+    top: 95vh;
+    translate: -50% -50%;
+
+    color: white;
+    font-size: 3vh;
+    text-align: center;
+    
+    background-color: black;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 50%;
+    
+    transition: font-size 0.15s ease, transform 0.25s ease;
+    cursor: pointer;
+}
+
+#MainButton:hover {
+    font-size: 4vh;
+}
+
+#MainDiv {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;/* auto */
+
+    background-color: rgb(26, 26, 26);
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(0%);
+}
+
+#MainDiv.hidden {
+    transform: translateY(100%);
+}
+
+#LeftPanel {
+    width: 50vh;
+    height: 100%;
+    left: calc(50vw - 50vh);
+    position: absolute;
+    margin-top: 10vh;
+    pointer-events: none;
+}
+
+#RightPanel {
+    width: 50vh;
+    height: 100%;
+    position: absolute;
+    padding: 10vh calc(50vw - 50vh) 0 50vw;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#RightPanel::-webkit-scrollbar{
+    display: none; /* Safari and Chrome */
+}
+
+#MouseGlow {
+    width: 30vmax;
+    height: 30vmax;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+
+    background-color: rgba(255, 167, 25, 0.25);
+    border-radius: 50%;
+}
+
+#MouseGlowBlur {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    backdrop-filter: blur(12vmax);
+}
+
+h1 {
+    font-size: 5.5vh;
+    margin: 0 0 1vh 0;
+    color: white;
+    font-weight: bold;
+    pointer-events: auto;
+}
+
+h2 {
+    font-size: 2vh;
+    margin: 0 0 1.5vh 0;
+    color: white;
+    font-weight: normal;
+    pointer-events: auto;
+}
+
+p {
+    font-size: 1.6vh;
+    margin: 0;
+    color: gray;
+    line-height: 2.5vh;
+    pointer-events: auto;
+}
+
+/*
+m {
+    font-weight: bold;
+    color: rgb(145, 145, 145);
+}
+*/
+
+.NavContainer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+.NavItem {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.NavItemDot {
+    width: 1.1vh;
+    height: 1.1vh;
+    border-radius: 50%;
+    background-color: gray;
+    transition: all 0.3s ease;
+}
+
+.NavItemText {
+    margin-left: 1.1vh;
+    font-size: 1.6vh;
+    color: gray;
+    transition: color 0.3s ease;
+}
+
+.NavItem.Active .NavItemDot {
+    background-color: white;
+    transform: scale(1.5);
+}
+
+.NavItem.Active .NavItemText {
+    color: white;
+}
+
+.Section {
+    margin-bottom: 10vh;
+}
+
+#SocialsContainer {
+    position: absolute;
+    top: 80vh;
+    transform: translateY(-100%);
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 2.5vh;
+}
+
+#SocialsContainer a {
+    transform: scale(1);
+    filter: invert(100%) brightness(50%);
+    transition: all 0.1s ease;
+    pointer-events: auto;
+}
+
+#SocialsContainer a:hover {
+     transform: scale(1.1);
+     filter: invert(100%) brightness(100%);
+}
+
+.Project {
+    margin-bottom: 0.5vh;
+    padding: 0.75vh 0.75vh 0.75vh 0.75vh;
+    border-radius: 0.75vh;
+
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.Project:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.Project p {
+    user-select: none;
+    font-size: 1.4vh;
+    color: gray;
+}
+
+.Separator {
+    flex-grow: 1;
+    border-bottom: 1px solid gray;
+    margin: 0 0.75vh 0.75em 0.75vh;
+}

@@ -1,496 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milad Ajaz Bhat - Online Resume</title>
+    <title>Milad Ajaz Bhat - Online Resume</title> <link rel="stylesheet" href="Styles/Main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
     <link rel="icon" href="https://raw.githubusercontent.com/m4milaad/Resume/refs/heads/main/mab.png" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        .card {
-            /* Main section card style */
-            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
-        }
-
-        .tag {
-            /* Skills tags */
-            @apply bg-sky-100 text-sky-700 px-4 py-1 rounded-md text-sm font-medium;
-        }
-
-        .icon-link {
-            @apply flex items-center text-gray-600 hover:text-sky-600 transition-colors duration-300;
-        }
-
-        .icon-link i {
-            @apply mr-2 text-sky-500;
-        }
-
-        /* Project Card Sub-element Styles */
-        .project-icon-base {
-            font-size: 2.3rem;
-            /* Approx 48px */
-            @apply text-sky-400 mb-4;
-        }
-
-        .project-title {
-            @apply text-xl font-semibold text-white mb-2;
-        }
-
-        .project-description {
-            @apply text-sm text-gray-300 mb-4 flex-grow;
-            /* flex-grow allows description to take available space */
-        }
-
-        .project-tech-tags-container {
-            @apply mb-5 flex flex-wrap justify-center gap-2;
-        }
-
-        .project-tech-tag {
-            @apply text-xs bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded-full;
-        }
-
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-    </style>
 </head>
-
-<body class="bg-gray-200 text-gray-700 leading-relaxed">
-
-    <header class="bg-emerald-600 text-white py-12 md:py-16">
-        <div class="container mx-auto px-6 text-center">
-            <img src="https://raw.githubusercontent.com/m4milaad/Resume/main/IMG_2217.jpg" alt="Milad Ajaz Bhat"
-                class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-emerald-900 shadow-lg object-cover hover:scale-110 duration-300 hover:border-white"
-                onerror="this.onerror=null; this.src='https://placehold.co/150x150/E2E8F0/718096?text=Photo+Error';">
-
-            <h1 class="text-4xl md:text-5xl font-bold mb-3 text-white">Milad Ajaz Bhat</h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8">Aspiring AI Engineer & Web Developer</p>
-
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="tel:+918899108592"
-                    class="bg-emerald-900 hover:bg-emerald-700 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-300">
-                    <i class="fas fa-phone-alt text-gray-200 mr-2"></i> +91 8899108592
+<body>
+    <canvas id="Canvas3D"></canvas>
+    <div id="MainDiv">
+        <div id="MouseGlow"></div>
+        <div id="MouseGlowBlur"></div>
+        <div id="RightPanel">
+            <div id="Section1" class="Section">
+                <h2>About</h2>
+                <p>Driven and detail-oriented technologist with a solid foundation in programming, embedded systems, and full-stack web development. Proficient in <m>Python</m> (core strength), <m>C</m>, <m>Java</m>, <m>JavaScript</m>, and <m>C++</m> (learning), with hands-on experience in building responsive web dashboards, smart IoT systems using <m>Arduino</m>, and robust software solutions. Adept at <m>object-oriented design</m>, <m>DNS management</m>, and <m>site monitoring</m>, with a strong command of tools like CLion, IntelliJ and Pycharm and modern frameworks like Tailwind CSS, Pandas and more. A quick learner and natural problem solver, passionate about bridging hardware and software to create impactful,real-world applications. Known for clear communication, leadership, and a commitment to delivering high-quality results. </p>
+            </div>
+            <div id="Section2" class="Section">
+                <h2>Projects</h2>
+                <p>Below are some of the projects I have developed. This is a selection of projects I've worked on. I plan to revisit and polish these projects in the future, improving their code with my current level of expertise.</p>
+                <br>
+                <a href="#" target="_blank" class="Project"> <p data-value="Online Resume " style="color: white; font-weight: bold; white-space: pre;">Online Resume </p>
+                    <p data-value="Personal Resume Website HTML TailwindCSS JS">Personal Resume Website HTML TailwindCSS JS</p>
+                    <div class="Separator"></div>
+                    <p data-value="2024">2024</p>
                 </a>
-                <a href="mailto:mb4milad.bhattt@gmail.com"
-                    class="bg-emerald-900 hover:bg-emerald-700 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-300">
-                    <i class="fas fa-envelope text-gray-200 mr-2"></i> mb4milad.bhattt@gmail.com
+                <a href="https://yge.ct.ws/" target="_blank" class="Project">
+                    <p data-value="Website: Yuva Global Enterprises " style="color: white; font-weight: bold; white-space: pre;">Website: Yuva Global Enterprises </p>
+                    <p data-value="Deployed Website HTML CSS JS DNS">HTML CSS JS DNS</p>
+                    <div class="Separator"></div>
+                    <p data-value="2025">2025</p>
                 </a>
-                <a href="https://www.linkedin.com/in/m4milaad/" target="_blank" rel="noopener noreferrer"
-                    class="bg-emerald-900 hover:bg-emerald-700 text-white px-4 py-2 rounded-md flex items-center transition-colors duration-300">
-                    <i class="fab fa-linkedin text-gray-200 mr-2"></i> LinkedIn Profile
+                <a href="https://github.com/m4milaad/Banking-System-" target="_blank" class="Project">
+                    <p data-value="Banking System " style="color: white; font-weight: bold; white-space: pre;">Banking System </p>
+                    <p data-value="Java OOP Application">Java OOP Application</p>
+                    <div class="Separator"></div>
+                    <p data-value="Ongoing">Ongoing</p> </a>
+                <a href="https://github.com/m4milaad/Pyhton-Projects/tree/main/BlackJack" target="_blank" class="Project">
+                    <p data-value="BlackJack Game " style="color: white; font-weight: bold; white-space: pre;">BlackJack Game </p>
+                    <p data-value="Python CLI Game">Python CLI Game</p>
+                    <div class="Separator"></div>
+                    <p data-value="Ongoing">Ongoing</p>
+                </a>
+                <a href="https://github.com/m4milaad/Pyhton-Projects/tree/main/States%20Guessing%20Game" target="_blank" class="Project">
+                    <p data-value="States Guessing Game " style="color: white; font-weight: bold; white-space: pre;">States Guessing Game </p>
+                    <p data-value="Python Pandas Turtle Game">Python Pandas Turtle Game</p>
+                    <div class="Separator"></div>
+                    <p data-value="Ongoing">Ongoing</p>
+                </a>
+                <a href="https://github.com/m4milaad/Pyhton-Projects/tree/main/Coffee%20Machine" target="_blank" class="Project">
+                    <p data-value="OOP Coffee Machine " style="color: white; font-weight: bold; white-space: pre;">OOP Coffee Machine </p>
+                    <p data-value="Python OOP Simulation">Python OOP Simulation</p>
+                    <div class="Separator"></div>
+                    <p data-value="Ongoing">Ongoing</p>
                 </a>
             </div>
-            <p class="mt-4 text-white text-sm">Srinagar, Jammu and Kashmir, India</p>
+            <div id="Section3" class="Section">
+                <h2>Experience</h2>
+                <p><m>Freelance Web Developer & AI Enthusiast</m><br>
+                    <m>Professional Projects | 2023 - Present</m><br>
+                    Developed and deployed a website for Yuva Global Enterprises using HTML, CSS, and JavaScript. Managed DNS and ensured responsive design. Monitored site performance and uptime.<br><br>
+                    <m>Personal Projects | 2023 - Present</m><br>
+                    Developed this interactive online resume website using HTML, Tailwind CSS, and modern JavaScript, focusing on a clean, user-friendly interface.
+                </p>
+            </div>
+            <p style="padding-bottom: 95.0vh; font-size: 1.25vh;">Developed by <m>Milad Ajaz Bhat</m> in <m>Visual Studio Code</m>, built with raw <m>WebGL2</m>, <m>HTML</m>, <m>CSS</m> and <m>JavaScript</m> no extra libraries or tools needed.</p>
         </div>
-    </header>
-
-    <main class="container mx-auto px-6 py-12">
-
-        <section id="summary" class="mb-12">
-            <div class="flex justify-center items-center group mb-10">
-                <span
-                    class="mr-3 text-3xl opacity-0 transform -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    📌
-                </span>
-                <h2 class="text-3xl font-semibold text-gray-800 text-center">
-                    Summary
-                </h2>
-            </div>
-            <p class="text-gray-600">
-                Driven and detail-oriented technologist with a solid foundation in programming, embedded systems,
-                and full-stack web development. Proficient in Python (core strength), C, Java, JavaScript, and C++,
-                with hands-on experience in building responsive web dashboards, smart IoT systems using Arduino, and
-                robust software solutions. Adept at object-oriented design, DNS management, and site monitoring,
-                with a strong command of tools like CLion, IntelliJ and Pycharm and modern frameworks like Tailwind
-                CSS, Pandas and more. A quick learner and natural problem solver, passionate about bridging hardware
-                and software to create impactful,real-world applications. Known for clear communication, leadership,
-                and a commitment to delivering high-quality results.
-
-
-            </p>
-            </div>
-        </section>
-
-        <section id="skills" class="mb-12">
-            <div class="flex justify-center items-center group mb-10">
-                <span
-                    class="mr-3 text-3xl opacity-0 transform -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    💡
-                </span>
-                <h2 class="text-3xl font-semibold text-gray-800 text-center">
-                    Skills
-                </h2>
-            </div>
-            <div class="flex flex-wrap gap-3 justify-center">
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Arduino
-                    C</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Attention
-                    to detail</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">C</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">C++
-                    (Learning)</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">CLion</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">CSS3</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Communication</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">DNS
-                    Management</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Detail-Oriented</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Embedded
-                    Systems</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">HTML5</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Java</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">JavaScript</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Leadership</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Object-Oriented
-                    Programming (OOP)</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Problem-Solving</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Python
-                    (Core Strength)</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Quick
-                    Learner</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Responsive
-                    Design</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Site
-                    Monitoring</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Tailwind
-                    CSS</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Version
-                    Control</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">Web
-                    Development</span>
-                <span
-                    class="tag text-s px-2 py-0.5 rounded-full duration-300 hover:scale-110 hover:text-emerald-500 cursor-default">WordPress</span>
-
-            </div>
-            </div>
-        </section>
-
-        <section id="projects" class="mb-12">
-            <div class="flex justify-center items-center group mb-10">
-                <span
-                    class="mr-3 text-3xl opacity-0 transform -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    💼
-                </span>
-                <h2 class="text-3xl font-semibold text-gray-800 text-center">
-                    Projects
-                </h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div
-                    class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]">
-                    <i class="fas fa-address-card project-icon-base"></i>
-                    <h3 class="project-title">Online Resume (This Site)</h3>
-                    <p class="project-description">Developed this personal online resume website. Features a
-                        responsive design and is built with HTML, Tailwind CSS, and JavaScript.</p>
-                    <div class="project-tech-tags-container">
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">HTML</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Tailwind
-                            CSS</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">JavaScript</span>
-                    </div>
-                    <div class="mt-auto w-full flex justify-center">
-                        <button onclick="window.location.href='#';" aria-label="View details of this online resume"
-                            class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
-                            <span
-                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
-                                View Details
-                            </span>
-                        </button>
-                    </div>
+        <div id="LeftPanel">
+            <h1>Milad Ajaz Bhat</h1>
+            <h2>Aspiring AI Engineer & Web Developer</h2>
+            <p>With a deep passion for programming and<br>a diverse portfolio of innovative and self<br>driven projects.</p>
+            <nav class="NavContainer">
+                <div class="NavItem Active" DataSection="Section1">
+                    <div class="NavItemDot"></div>
+                    <span class="NavItemText">About</span>
                 </div>
-
-                <div
-                    class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]">
-                    <i class="fas fa-globe project-icon-base"></i>
-                    <h3 class="project-title">Website: Yuva Global Enterprises</h3>
-                    <p class="project-description">Deployed a website using HTML, CSS, and JavaScript on
-                        InfinityFree. Implemented responsive design and managed DNS.</p>
-                    <div class="project-tech-tags-container">
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">HTML</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">CSS</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">JavaScript</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">DNS</span>
-                    </div>
-                    <div class="mt-auto w-full flex justify-center">
-                        <button onclick="window.open('https://yge.ct.ws/', '_blank');"
-                            aria-label="Visit personal website yge.ct.ws"
-                            class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
-                            <span
-                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
-                                Visit Site
-                            </span>
-                        </button>
-                    </div>
+                <div class="NavItem" DataSection="Section2">
+                    <div class="NavItemDot"></div>
+                    <span class="NavItemText">Projects</span>
                 </div>
-
-                <div
-                    class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]">
-                    <i class="fas fa-university project-icon-base"></i>
-                    <h3 class="project-title">Banking System</h3>
-                    <p class="project-description">Developed an object-oriented banking system application using
-                        Java.</p>
-                    <div class="project-tech-tags-container">
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Java</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">OOP</span>
-                    </div>
-                    <div class="mt-auto w-full flex justify-center">
-                        <button onclick="window.open('https://github.com/m4milaad/Banking-System-', '_blank');"
-                            aria-label="View Banking System project details (placeholder link)"
-                            class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
-                            <span
-                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
-                                View Project
-                            </span>
-                        </button>
-                    </div>
+                <div class="NavItem" DataSection="Section3">
+                    <div class="NavItemDot"></div>
+                    <span class="NavItemText">Experience</span>
                 </div>
-
-                <div
-                    class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]">
-                    <i class="fas fa-dice project-icon-base"></i>
-                    <h3 class="project-title">BlackJack Game</h3>
-                    <p class="project-description">A command-line version of the classic BlackJack card game, built
-                        with Python.</p>
-                    <div class="project-tech-tags-container">
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
-                    </div>
-                    <div class="mt-auto w-full flex justify-center">
-                        <button
-                            onclick="window.open('https://github.com/m4milaad/Pyhton-Projects/tree/main/BlackJack', '_blank');"
-                            aria-label="View BlackJack project details (placeholder link)"
-                            class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
-                            <span
-                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
-                                View Project
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]">
-                    <i class="fas fa-map-marked-alt project-icon-base"></i>
-                    <h3 class="project-title">States Guessing Game</h3>
-                    <p class="project-description">This Python script is an interactive game that challenges users
-                        to guess all 50 U.S. states.</p>
-                    <div class="project-tech-tags-container">
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Pandas</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Trutle</span>
-                    </div>
-                    <div class="mt-auto w-full flex justify-center">
-                        <button
-                            onclick="window.open('https://github.com/m4milaad/Pyhton-Projects/tree/main/States%20Guessing%20Game', '_blank');"
-                            aria-label="View Caesar Cipher project details (placeholder link)"
-                            class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
-                            <span
-                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
-                                View Project
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl transition-all duration-300 transform hover:bg-emerald-100 hover:text-black hover:shadow-2xl hover:scale-105 flex flex-col items-center text-center min-h-[300px]">
-                    <i class="fas fa-coffee project-icon-base"></i>
-                    <h3 class="project-title">OOP Coffee Machine</h3>
-                    <p class="project-description">Simulated a coffee machine's operations with an object-oriented
-                        approach in Python.</p>
-                    <div class="project-tech-tags-container">
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">OOP</span>
-                    </div>
-                    <div class="mt-auto w-full flex justify-center">
-                        <button
-                            onclick="window.open('https://github.com/m4milaad/Pyhton-Projects/tree/main/Coffee%20Machine', '_blank');"
-                            aria-label="View Coffee Machine project details (placeholder link)"
-                            class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
-                            <span
-                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent">
-                                View Project
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-emerald-600 text-white p-6 rounded-lg shadow-xl flex flex-col items-center text-center min-h-[300px]">
-                    <i class="fas fa-ellipsis-h project-icon-base"></i>
-                    <h3 class="project-title">And Many More...</h3>
-                    <p class="project-description">Including: Hirst Painting Generator, Pong Game, Snake Game, Peek
-                        Hour, Caesar Cipher, Hangman, Higher or Lower, Mail Merge, Number Guessing, Quiz
-                        Game, Password Generator, Rock Paper Scissor, Silent Auction, Calculator, Tip Calculator,
-                        Treasure Island, Turtle Race.</p>
-                    <div class="project-tech-tags-container">
-                        <span class="text-xs bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-full">Python</span>
-                    </div>
-                </div>
+            </nav>
+            <div id="SocialsContainer">
+                <a href="https://github.com/m4milaad" target="_blank" title="Github">
+                    <img src="Images/GithubIcon.png" alt="Github" style="width:30px;height:30px;">
+                </a>
+                <a href="mailto:mb4milad.bhattt@gmail.com" target="_blank" title="Email">
+                    <img src="Images/EmailIcon.png" alt="Email" style="width:30px;height:30px;">
+                </a>
+                <a href="CV_Milad_Ajaz_Bhat.pdf" target="_blank" title="CV"> <img src="Images/CVIcon.png" alt="CV" style="width:30px;height:30px;">
+                </a>
             </div>
-            </div>
-        </section>
-
-        <section id="experience" class="mb-12">
-            <div class="flex justify-center items-center group mb-10">
-                <span
-                    class="mr-3 text-3xl opacity-0 transform -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    💼
-                </span>
-                <h2 class="text-3xl font-semibold text-gray-800 text-center">
-                    Work Experience
-                </h2>
-            </div>
-
-
-            <div>
-                <h3 class="text-xl font-semibold text-gray-700">Freelance Web Developer & AI Enthusiast</h3>
-                <p class="text-md text-sky-600 italic">Professional Projects | 2023 - Present</p>
-                <ul class="list-disc list-inside mt-2 text-gray-600 space-y-2">
-                    <li>
-                        <strong>Website Project:
-                            <a href="https://yge.ct.ws/" target="_blank" rel="noopener noreferrer"
-                                class="text-sky-600 hover:underline">Yuva Global Enterprises</a>
-                        </strong> (2025)
-                        <ul class="list-disc list-inside ml-6 mt-1 text-sm space-y-1">
-                            <li>Developed and deployed a website for a local business using HTML, CSS, and JavaScript on
-                                InfinityFree's free hosting platform.</li>
-                            <li>Implemented responsive design principles to ensure optimal viewing across various
-                                devices.</li>
-                            <li>Configured DNS settings and managed domain-related issues, including addressing
-                                accessibility challenges due to the hosting domain's reputation.</li>
-                            <li>Monitored site performance and uptime, ensuring consistent availability and swift load
-                                times.</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <p class="text-md text-sky-600 italic mt-6">Personal Projects | 2023 - Present</p>
-                <ul class="list-disc list-inside mt-2 text-gray-600 space-y-2">
-                    <li>
-                        <strong>Developed this interactive online resume website:</strong>
-                        <ul class="list-disc list-inside ml-6 mt-1 text-sm space-y-1">
-                            <li>Designed and built a responsive, single-page application using HTML, Tailwind CSS, and
-                                modern JavaScript.</li>
-                            <li>Focused on creating a clean, user-friendly interface to effectively showcase skills,
-                                projects, and educational background.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            </div>
-        </section>
-
-
-        <section id="education" class="mb-12">
-            <div class="flex justify-center items-center group mb-10">
-                <span
-                    class="mr-3 text-3xl opacity-0 transform -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    🎓
-                </span>
-                <h2 class="text-3xl font-semibold text-gray-800 text-center">
-                    Education
-                </h2>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-700">10th (JKBOSE)</h3>
-            <p class="text-md text-sky-600">Woodlands House School, Sonwar, Srinagar</p>
-            <p class="text-gray-500">Year: 2019</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold text-gray-700">10+2 (JKBOSE)</h3>
-                <p class="text-md text-sky-600">Sri Pratap Higher Secondary School, Srinagar</p>
-                <p class="text-gray-600">Major: Non-Medical</p>
-                <p class="text-gray-500">Year: 2022</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold text-gray-700">Bachelor of Technology (B.Tech) - Computer Science &
-                    Engineering</h3>
-                <p class="text-md text-sky-600">Central University of Kashmir, Ganderbal</p>
-                <p class="text-gray-600">Major: Artificial Intelligence</p>
-                <p class="text-gray-500">Expected Graduation: July 2027</p>
-            </div>
-
-            </div>
-        </section>
-
-        <section id="awards" class="mb-12">
-            <div class="flex justify-center items-center group mb-10">
-                <span
-                    class="mr-3 text-3xl opacity-0 transform -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    🏆
-                </span>
-                <h2 class="text-3xl font-semibold text-gray-800 text-center">
-                    Awards
-                </h2>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-700">3rd Rank - (Cyber Concave 2025)</h3>
-            <p class="text-md text-sky-600">Central University of Kashmir</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold text-gray-700">Event Management- Gaming competition - (Cyber Concave
-                    2025)</h3>
-                <p class="text-md text-sky-600">Central University of Kashmir</p>
-            </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-gray-300 py-8 text-center">
-        <div class="container mx-auto px-6">
-            <p>&copy; <span id="currentYear"></span> Milad Ajaz Bhat. All rights reserved.</p>
-            <p class="text-sm mt-1">Designed with Tailwind CSS.</p>
         </div>
-    </footer>
-
-    <script>
-        // Set the current year in the footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-
+    </div>
+    <button id="MainButton">🠛</button>
+    <audio id="ComputerBoot" src="Sounds/ComputerBoot.mp3"></audio>
+    <audio id="ComputerAmbient" src="Sounds/ComputerAmbient.mp3"></audio>
+    <audio id="ComputerBeep" src="Sounds/ComputerBeep.mp3"></audio>
+    <audio id="KeyboardPressed" src="Sounds/KeyboardPressed.mp3"></audio>
+    <script src="Scripts/ModelFiles.js"></script>
+    <script src="Scripts/RenderingFunctions.js"></script>
+    <script src="Scripts/TerminalFunction.js"></script>
+    <script src="Scripts/Main.js"></script>
 </body>
-
 </html>
