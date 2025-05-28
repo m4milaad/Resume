@@ -1,151 +1,150 @@
-/* Resume/Styles/Main.css - Original User Styles */
-body {
-    margin: 0;
+/* Resume/Styles/Main.css - Starting from User's Original Base */
+
+/* ======== Global Resets & Body Styling ======== */
+html {
     height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-canvas {
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0; 
+    height: 100vh;
+    overflow: hidden; 
+    font-family: Arial, sans-serif;
+    background-color: rgb(26, 26, 26);
+    color: gray;
+    line-height: 1.6;
+}
+
+/* ======== Canvas Background ======== */
+canvas#Canvas3D { /* Added ID for specificity */
     display: block;
     width: 100%;
     height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
+/* ======== Main Button (Terminal Toggle) ======== */
 #MainButton {
-    /* width: 7.5vh; */
-    /* Adjusted width to auto for text */
     height: 7.5vh;
     padding: 0 2vh;
-    /* Added padding for text */
-
     position: fixed;
-    left: 50vw;
-    top: 95vh;
-    translate: -50% -50%;
-
+    left: 50%;
+    bottom: 2.5vh; /* Positioned from bottom for consistency */
+    transform: translateX(-50%);
     color: white;
-    /* font-size: 3.5vh; */
-    /* Font size is now on #ButtonText */
     text-align: center;
-
     background-color: black;
     border: 1px solid rgb(100, 100, 100);
     border-radius: 3.75vh;
-    /* Adjusted for a more pill-like shape */
-
-    transition: transform 0.25s ease;
-    /* Removed font-size transition here */
+    transition: transform 0.25s ease, background-color 0.25s ease;
     cursor: pointer;
     display: flex;
-    /* Added for aligning text and arrow */
     align-items: center;
-    /* Added for aligning text and arrow */
     justify-content: center;
-    /* Added for aligning text and arrow */
-    z-index: 1000;
-    /* Ensure button is on top */
+    z-index: 1000; /* Highest z-index */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#MainButton:hover #ButtonText {
-    /* Apply hover effect to text */
-    font-size: 2.5vh;
+#MainButton:hover {
+    background-color: rgb(30, 30, 30);
+    transform: translateX(-50%) scale(1.05);
 }
-
-#MainButton:hover #ButtonArrow {
-    /* Apply hover effect to arrow */
-    font-size: 4.5vh;
-}
-
 
 #ButtonText {
     font-size: 2vh;
     margin-right: 1vh;
-    /* Space between text and arrow */
     transition: font-size 0.15s ease;
     white-space: nowrap;
-    /* Prevent text from wrapping */
 }
 
 #ButtonArrow {
     font-size: 3.5vh;
     display: inline-block;
-    /* Allows transform */
     transition: font-size 0.15s ease, transform 0.25s ease;
-    /* Keep arrow transform */
 }
 
-#MainButton:hover {
-    /* font-size: 4.5vh; */
-    /* Increased from 4vh - This was commented out in original, keeping it so */
+#MainButton:hover #ButtonText {
+    font-size: 2.2vh;
 }
 
+#MainButton:hover #ButtonArrow {
+    font-size: 3.8vh;
+}
+
+/* ======== Main Content Area (Modern View) - Desktop ======== */
 #MainDiv {
     width: 100vw;
     height: 100vh;
-
-    position: fixed;
+    position: fixed; /* Original: fixed */
     top: 0;
     left: 0;
-    overflow: hidden;
-    /* auto */
-
-    background-color: rgb(26, 26, 26);
+    overflow: hidden; /* Original: hidden */
+    /* background-color: rgb(26, 26, 26); -- Now on body */
     transition: transform 0.5s ease-in-out;
     transform: translateY(0%);
-    z-index: 100;
-    /* Ensure MainDiv is above canvas but below button */
+    z-index: 100; /* Above canvas */
 }
 
 #MainDiv.hidden {
     transform: translateY(100%);
 }
 
+/* ======== Panels - Desktop Styles (Original Absolute Positioning) ======== */
+/* HTML structure is RightPanel then LeftPanel */
 #LeftPanel {
     width: calc(50vw - 20vh);
     height: 100%;
     left: 20vh;
-    position: absolute;
-    margin-top: 10vh;
+    position: absolute; /* Original: absolute */
+    top: 0; /* Ensure alignment if margin-top is used for content */
+    margin-top: 10vh; /* This pushes content down */
     pointer-events: none;
     box-sizing: border-box;
-    /* Good practice */
-    z-index: 102;
-    /* Ensure LeftPanel can be above RightPanel if needed */
+    z-index: 102; /* Above RightPanel if they were to overlap */
+    display: flex; /* For internal alignment */
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 #RightPanel {
+    width: auto; /* Original: auto, relies on left/right */
     height: 100%;
-    position: absolute;
+    position: absolute; /* Original: absolute */
     left: 50vw;
     right: 0;
-    width: auto;
-
+    top: 0; /* Ensure alignment */
     padding: 10vh 20vh 0 2vh;
-
     overflow-y: scroll;
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     box-sizing: border-box;
-    /* Good practice */
     z-index: 101;
-    /* Below LeftPanel by default if overlapping */
 }
 
 #RightPanel::-webkit-scrollbar {
     display: none;
 }
 
+/* ======== Mouse Glow Effect (User's Fix) ======== */
 #MouseGlow {
     width: 30vmax;
     height: 30vmax;
-
-    position: absolute;
+    position: absolute; /* Relative to #MainDiv (which is fixed) */
     left: 50%;
     top: 50%;
-    translate: -50% -50%;
-
+    transform: translate(-50%, -50%);
     background-color: rgba(255, 167, 25, 0.25);
     border-radius: 50%;
 }
@@ -153,14 +152,13 @@ canvas {
 #MouseGlowBlur {
     width: 100%;
     height: 100%;
-
     position: absolute;
     backdrop-filter: blur(12vmax);
 }
 
+/* ======== Typography ======== */
 h1 {
     font-size: 7.0vh;
-    /* Increased from 6.5vh */
     margin: 0 0 1vh 0;
     color: white;
     font-weight: bold;
@@ -169,7 +167,6 @@ h1 {
 
 h2 {
     font-size: 2.8vh;
-    /* Increased from 2.5vh */
     margin: 0 0 1.5vh 0;
     color: white;
     font-weight: normal;
@@ -178,27 +175,23 @@ h2 {
 
 p {
     font-size: 2.0vh;
-    /* Increased from 1.8vh */
-    margin: 0;
-    color: gray;
-    line-height: 3.0vh;
-    /* Increased from 2.7vh */
+    margin: 0 0 1vh 0;
+    color: rgb(160, 160, 160);
+    line-height: 1.7;
     pointer-events: auto;
 }
-
 
 m {
     font-weight: bold;
-    color: rgb(145, 145, 145);
+    color: rgb(200, 200, 200);
 }
 
-
+/* ======== Navigation (Scrollspy) ======== */
 .NavContainer {
-    position: absolute;
+    position: absolute; /* Original positioning */
     top: 50%;
-    transform: translateY(-85%);
+    transform: translateY(-70%);
     pointer-events: auto;
-    /* Ensure nav is interactive */
 }
 
 .NavItem {
@@ -206,7 +199,6 @@ m {
     align-items: center;
     margin: 20px 0;
     cursor: pointer;
-    pointer-events: auto;
 }
 
 .NavItemDot {
@@ -215,14 +207,13 @@ m {
     border-radius: 50%;
     background-color: gray;
     transition: all 0.3s ease;
+    margin-right: 1.1vh;
 }
 
 .NavItemText {
-    margin-left: 1.1vh;
     font-size: 2.0vh;
-    /* Increased from 1.8vh */
     color: gray;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
 .NavItem.Active .NavItemDot {
@@ -232,29 +223,30 @@ m {
 
 .NavItem.Active .NavItemText {
     color: white;
+    font-weight: bold;
 }
 
+/* ======== Sections in Right Panel ======== */
 .Section {
     margin-bottom: 10vh;
 }
 
+/* ======== Social Icons ======== */
 #SocialsContainer {
-    position: absolute;
+    position: absolute; /* Original positioning */
     top: 90vh;
     transform: translateY(-170%);
-
     display: flex;
     justify-content: flex-start;
     gap: 2.5vh;
     pointer-events: auto;
-    /* Ensure socials are interactive */
 }
 
 #SocialsContainer a {
+    display: inline-block;
     transform: scale(1);
     filter: invert(100%) brightness(50%);
     transition: all 0.1s ease;
-    pointer-events: auto;
 }
 
 #SocialsContainer a:hover {
@@ -263,21 +255,22 @@ m {
 }
 
 #SocialsContainer img {
-    /* Added to ensure consistent icon sizing */
     width: 3vh;
     height: 3vh;
     max-width: 30px;
     max-height: 30px;
 }
 
+/* ======== Project List Styling ======== */
 .Project {
     margin-bottom: 0.5vh;
-    padding: 0.75vh 0.75vh 0.75vh 0.75vh;
+    padding: 0.75vh;
     border-radius: 0.75vh;
-
     display: flex;
     justify-content: space-between;
+    align-items: center;
     text-decoration: none;
+    transition: background-color 0.2s ease;
 }
 
 .Project:hover {
@@ -287,267 +280,137 @@ m {
 .Project p {
     user-select: none;
     font-size: 1.8vh;
-    /* Increased from 1.6vh */
     color: gray;
+    margin-bottom: 0;
+}
+
+.Project p[data-value*=" "][style*="color: white"] {
+    color: white !important;
+    font-weight: bold;
+    white-space: pre;
+    margin-right: 1em;
 }
 
 .Separator {
     flex-grow: 1;
     border-bottom: 1px solid gray;
     margin: 0 0.75vh 0.75em 0.75vh;
+    align-self: center;
+    height: 1px;
 }
-
 
 /* ======== Responsive Adjustments START ======== */
 
-/* === Medium Screens (e.g., Smaller Desktops, Larger Tablets landscape) === */
+/* === Medium Screens (e.g., Smaller Desktops, Larger Tablets landscape ~1200px) === */
 @media (max-width: 1200px) {
     #LeftPanel {
         width: calc(50vw - 15vh);
         left: 15vh;
         padding-right: 3vw;
-        /* Added for content spacing */
     }
-
     #RightPanel {
-        left: calc(50vw - 15vh + 15vh + 3vw);
-        /* Adjust left based on LeftPanel's new end */
-        width: calc(100vw - (50vw - 15vh + 15vh + 3vw) - 10vw);
-        /* Adjust width, considering right padding */
+        left: calc(35vw + 3vw); /* (50vw - 15vh from left for LeftPanel) + 3vw padding */
+        width: calc(100vw - (35vw + 3vw) - 10vw ); /* Full width minus LeftPanel and its own right padding */
         padding: 10vh 10vw 0 3vw;
-        /* Adjust padding */
     }
-
-    h1 {
-        font-size: 6.5vh;
-    }
-
-    h2 {
-        font-size: 2.6vh;
-    }
-
-    p {
-        font-size: 1.9vh;
-        line-height: 2.9vh;
-    }
-
-    .NavItemText {
-        font-size: 1.9vh;
-    }
+    h1 { font-size: 6.5vh; }
+    h2 { font-size: 2.6vh; }
+    p  { font-size: 1.9vh; line-height: 2.9vh; }
+    .NavItemText { font-size: 1.9vh; }
 }
 
-/* ======== Tablet & Mobile Devices (Screens <= 992px for stacking) ======== */
+/* ======== Tablet & Mobile Devices (Stacking layout, e.g., <= 992px) ======== */
 @media (max-width: 992px) {
-
-    /* Using a slightly larger breakpoint for stacking */
     body {
-        overflow-y: auto;
-        /* Allow body to scroll */
-        height: auto;
-        /* Allow body to grow with content */
+        overflow-y: auto; /* Allow body to scroll */
+        height: auto; /* Allow body to grow with content */
     }
 
     #MainDiv {
-        position: static;
-        /* Change from fixed to flow with body */
-        height: auto;
+        position: static; /* Remove fixed positioning to flow with body */
+        height: auto; /* Height based on content */
         display: flex;
-        flex-direction: column;
-        overflow-y: visible;
-        /* Let body handle scrolling */
+        flex-direction: column; /* Stack children vertically */
+        overflow-y: visible; /* Let body handle overall scrolling */
     }
 
-    #LeftPanel,
-    #RightPanel {
-        position: static;
-        /* Override absolute positioning */
-        width: 100%;
-        height: auto;
-        margin-top: 0;
-        /* Reset margins */
-        left: auto;
-        /* Reset absolute positioning props */
+    #LeftPanel, #RightPanel {
+        position: static; /* Remove absolute positioning */
+        width: 100%;    /* Take full width when stacked */
+        height: auto;   /* Height based on content */
+        left: auto;     /* Reset absolute positioning properties */
         right: auto;
-        padding: 5vh 5vw;
-        /* Consistent padding for stacked view */
-        overflow-y: visible;
-        /* Content flows, body scrolls */
-        box-sizing: border-box;
+        top: auto;
+        margin-top: 0;  /* Reset margin from absolute positioning */
+        padding: 5vh 5vw; /* Consistent padding */
+        overflow-y: visible; /* Content flows, body scrolls */
+        pointer-events: auto; /* Ensure panels are interactive */
     }
 
     #LeftPanel {
-        order: 1;
-        /* LeftPanel on top */
+        order: 1; /* LeftPanel on top */
         text-align: center;
-        /* Center content in LeftPanel */
-        padding-bottom: 3vh;
-        /* Space before RightPanel starts */
-        pointer-events: auto;
-        /* Ensure all of LeftPanel is interactive */
-        /* Reset any specific desktop layout styles that might interfere */
-        display: flex;
+        padding-bottom: 3vh; /* Space before RightPanel */
+        display: flex; /* Keep flex for internal alignment */
         flex-direction: column;
-        align-items: center;
-        /* Center flex children */
+        align-items: center; /* Center its children */
     }
 
     #RightPanel {
-        order: 2;
-        /* RightPanel below */
-        padding-top: 3vh;
-        padding-bottom: 15vh;
-        /* Space for the fixed button */
+        order: 2; /* RightPanel below */
+        padding-top: 3vh; /* Space after LeftPanel */
+        padding-bottom: 15vh; /* Generous space for the fixed button */
     }
 
-    /* Adjust typography for readability */
-    h1 {
-        font-size: clamp(4.5vh, 8vw, 6vh);
-        margin-bottom: 2vh;
-    }
-
-    h2 {
-        font-size: clamp(2.4vh, 5vw, 2.8vh);
-    }
-
-    p {
-        font-size: clamp(1.8vh, 3.5vw, 2vh);
-        line-height: 1.65;
-        margin-bottom: 1.5vh;
-        /* Add some space between paragraphs */
-    }
+    /* Adjust typography for tablets */
+    h1 { font-size: clamp(4.5vh, 8vw, 6vh); margin-bottom: 2vh; }
+    h2 { font-size: clamp(2.4vh, 5vw, 2.8vh); }
+    p { font-size: clamp(1.8vh, 3.5vw, 2vh); line-height: 1.65; margin-bottom: 1.5vh; }
 
     .NavContainer {
-        position: static;
-        /* Override absolute positioning */
-        transform: none;
-        /* Reset transform */
+        position: static; /* Override absolute positioning */
+        transform: none; /* Reset transform */
         margin-top: 3vh;
         margin-bottom: 3vh;
         width: 100%;
-        /* Allow NavContainer to take full width for centering */
         display: flex;
         flex-direction: column;
-        /* Stack nav items */
         align-items: center;
-        /* Center nav items */
-    }
-
-    .NavItem {
-        margin: 10px 0;
     }
 
     #SocialsContainer {
-        position: static;
-        /* Override absolute positioning */
-        transform: none;
-        /* Reset transform */
+        position: static; /* Override absolute positioning */
+        transform: none; /* Reset transform */
         margin-top: 4vh;
         padding-bottom: 3vh;
         justify-content: center;
-        /* Center social icons */
         width: 100%;
     }
 
-    .Project {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1.5vh 1vh;
-    }
-
-    .Project .Separator {
-        width: 80%;
-        margin: 1vh auto;
-    }
-
-    .Project p {
-        width: 100%;
-        margin-bottom: 0.5vh;
-    }
-
-    /* The special paragraph at the end of RightPanel */
-    #RightPanel>p[style*="padding-bottom: 95.0vh"] {
-        padding-bottom: 15vh !important;
-        /* Ensure enough space above the button */
-        font-size: 1.5vh !important;
-    }
-
-    #MouseGlow,
-    #MouseGlowBlur {
-        display: none;
-        /* Hide mouse effects on tablets/mobile */
-    }
+    .Project { flex-direction: column; align-items: center; text-align: center; padding: 1.5vh 1vh; }
+    .Project .Separator { width: 80%; margin: 1vh auto; }
+    .Project p { width: 100%; margin-bottom: 0.5vh; }
+    
+    #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 15vh !important; font-size: 1.5vh !important; }
+    #MouseGlow, #MouseGlowBlur { display: none; }
 }
 
 /* ======== Mobile Devices (Screens <= 480px) ======== */
 @media (max-width: 480px) {
+    #LeftPanel, #RightPanel { padding: 4vh 4vw; }
+    h1 { font-size: clamp(4vh, 9vw, 5vh); }
+    h2 { font-size: clamp(2.2vh, 5.5vw, 2.4vh); }
+    p { font-size: clamp(1.7vh, 4vw, 1.9vh); line-height: 1.6; }
+    .NavItemText { font-size: clamp(1.7vh, 3.5vw, 1.9vh); }
+    .NavItemDot { width: 0.9vh; height: 0.9vh; }
 
-    #LeftPanel,
-    #RightPanel {
-        padding: 4vh 4vw;
-        /* Further reduce padding for mobile */
-    }
+    #MainButton { padding: 0 2.5vh; height: 6vh; border-radius: 3vh; bottom: 3vh; }
+    #ButtonText { font-size: 1.6vh; }
+    #ButtonArrow { font-size: 2.8vh; }
+    #MainButton:hover #ButtonText { font-size: 1.7vh; }
+    #MainButton:hover #ButtonArrow { font-size: 3vh; }
 
-    h1 {
-        font-size: clamp(4vh, 9vw, 5vh);
-    }
-
-    h2 {
-        font-size: clamp(2.2vh, 5.5vw, 2.4vh);
-    }
-
-    p {
-        font-size: clamp(1.7vh, 4vw, 1.9vh);
-        line-height: 1.6;
-    }
-
-    .NavItemText {
-        font-size: clamp(1.7vh, 3.5vw, 1.9vh);
-    }
-
-    .NavItemDot {
-        width: 0.9vh;
-        height: 0.9vh;
-    }
-
-    #MainButton {
-        padding: 0 2.5vh;
-        height: 6vh;
-        border-radius: 3vh;
-        bottom: 3vh;
-    }
-
-    #ButtonText {
-        font-size: 1.6vh;
-    }
-
-    #ButtonArrow {
-        font-size: 2.8vh;
-    }
-
-    #MainButton:hover #ButtonText {
-        font-size: 1.7vh;
-    }
-
-    #MainButton:hover #ButtonArrow {
-        font-size: 3vh;
-    }
-
-    .Section {
-        margin-bottom: 5vh;
-    }
-
-    #SocialsContainer img {
-        width: 2.8vh;
-        height: 2.8vh;
-        max-width: 28px;
-        max-height: 28px;
-    }
-
-    #RightPanel>p[style*="padding-bottom: 95.0vh"] {
-        padding-bottom: 12vh !important;
-        /* Adjusted space above button */
-        font-size: 1.4vh !important;
-        /* Make disclaimer text slightly more readable */
-    }
+    .Section { margin-bottom: 5vh; }
+    #SocialsContainer img { width: 2.8vh; height: 2.8vh; max-width: 28px; max-height: 28px; }
+    #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 12vh !important; font-size: 1.4vh !important; }
 }
