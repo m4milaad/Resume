@@ -415,6 +415,11 @@ m {
     /* #MainButton specific styles for mobile are not needed if it's hidden by the 992px breakpoint */
 
     .Section { margin-bottom: 5vh; }
-    #SocialsContainer img { width: 2.8vh; height: 2.8vh; max-width: 28px; max-height: 28px; }
+    #SocialsContainer img { 
+        width: 4.5vh; /* Increased from 2.8vh */
+        height: 4.5vh; /* Increased from 2.8vh */
+        max-width: 40px;  /* Optional: Adjust max-width if needed */
+        max-height: 40px; /* Optional: Adjust max-height if needed */
+    }
     #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 5vh !important; font-size: 1.4vh !important; } 
 }
