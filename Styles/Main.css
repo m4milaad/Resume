@@ -183,7 +183,7 @@ m {
 .NavContainer {
     position: absolute;
     top: 50%;
-    transform: translateY(-100%);
+    transform: translateY(-120%); /* Adjusted for new item */
 }
 
 .NavItem {
@@ -225,7 +225,7 @@ m {
 
 #SocialsContainer {
     position: absolute;
-    top: 80vh;
+    top: 85vh; /* Adjusted for new item */
     transform: translateY(-100%);
 
     display: flex;
