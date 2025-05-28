@@ -183,7 +183,7 @@ m {
 .NavContainer {
     position: absolute;
     top: 50%;
-    transform: translateY(-90%);
+    transform: translateY(-85%);
 }
 
 .NavItem {
