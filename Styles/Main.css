@@ -323,6 +323,7 @@ m {
     .NavItemText { font-size: 1.9vh; }
 }
 
+
 /* ======== Tablet & Mobile Devices (Stacking layout, e.g., <= 992px) ======== */
 @media (max-width: 992px) {
     body {
@@ -416,10 +417,10 @@ m {
 
     .Section { margin-bottom: 5vh; }
     #SocialsContainer img { 
-        width: 4.5vh; /* Increased from 2.8vh */
-        height: 4.5vh; /* Increased from 2.8vh */
-        max-width: 40px;  /* Optional: Adjust max-width if needed */
-        max-height: 40px; /* Optional: Adjust max-height if needed */
+        width: 4.5vh; 
+        height: 4.5vh; 
+        max-width: 40px; 
+        max-height: 40px; 
     }
     #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 5vh !important; font-size: 1.4vh !important; } 
 }
