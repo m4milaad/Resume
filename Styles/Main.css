@@ -14,9 +14,9 @@ html {
 
 body {
     margin: 0;
-    padding: 0; 
+    padding: 0; /* Ensure no padding on body */
     height: 100vh;
-    overflow: hidden; 
+    overflow: hidden; /* Prevent body scrolling by default for desktop */
     font-family: Arial, sans-serif;
     background-color: rgb(26, 26, 26);
     color: gray;
@@ -40,7 +40,7 @@ canvas#Canvas3D { /* Added ID for specificity */
     padding: 0 2vh;
     position: fixed;
     left: 50%;
-    bottom: 2.5vh; /* Positioned from bottom for consistency */
+    bottom: 2.5vh;
     transform: translateX(-50%);
     color: white;
     text-align: center;
@@ -86,14 +86,15 @@ canvas#Canvas3D { /* Added ID for specificity */
 #MainDiv {
     width: 100vw;
     height: 100vh;
-    position: fixed; /* Original: fixed */
+
+    position: fixed;
     top: 0;
     left: 0;
-    overflow: hidden; /* Original: hidden */
-    /* background-color: rgb(26, 26, 26); -- Now on body */
+    overflow: hidden;/* auto */
+
+    background-color: rgb(26, 26, 26);
     transition: transform 0.5s ease-in-out;
     transform: translateY(0%);
-    z-index: 100; /* Above canvas */
 }
 
 #MainDiv.hidden {
@@ -141,10 +142,12 @@ canvas#Canvas3D { /* Added ID for specificity */
 #MouseGlow {
     width: 30vmax;
     height: 30vmax;
-    position: absolute; /* Relative to #MainDiv (which is fixed) */
+
+    position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    translate: -50% -50%;
+
     background-color: rgba(255, 167, 25, 0.25);
     border-radius: 50%;
 }
@@ -152,6 +155,7 @@ canvas#Canvas3D { /* Added ID for specificity */
 #MouseGlowBlur {
     width: 100%;
     height: 100%;
+
     position: absolute;
     backdrop-filter: blur(12vmax);
 }
@@ -166,7 +170,7 @@ h1 {
 }
 
 h2 {
-    font-size: 3vh;
+    font-size: 2.8vh;
     margin: 0 0 1.5vh 0;
     color: white;
     font-weight: normal;
@@ -175,7 +179,7 @@ h2 {
 
 p {
     font-size: 2.0vh;
-    margin: 0 0 1vh 0;
+    margin: 0 0 1vh 0; /* Added bottom margin for spacing */
     color: rgb(160, 160, 160);
     line-height: 1.7;
     pointer-events: auto;
@@ -190,7 +194,7 @@ m {
 .NavContainer {
     position: absolute; /* Original positioning */
     top: 50%;
-    transform: translateY(-70%);
+    transform: translateY(-65%);
     pointer-events: auto;
 }
 
@@ -326,6 +330,10 @@ m {
         height: auto; /* Allow body to grow with content */
     }
 
+    #MainButton {
+        display: none; /* Hide the terminal button */
+    }
+
     #MainDiv {
         position: static; /* Remove fixed positioning to flow with body */
         height: auto; /* Height based on content */
@@ -359,7 +367,7 @@ m {
     #RightPanel {
         order: 2; /* RightPanel below */
         padding-top: 3vh; /* Space after LeftPanel */
-        padding-bottom: 15vh; /* Generous space for the fixed button */
+        padding-bottom: 5vh; /* Adjusted padding as button is hidden */
     }
 
     /* Adjust typography for tablets */
@@ -391,7 +399,7 @@ m {
     .Project .Separator { width: 80%; margin: 1vh auto; }
     .Project p { width: 100%; margin-bottom: 0.5vh; }
     
-    #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 15vh !important; font-size: 1.5vh !important; }
+    #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 5vh !important; font-size: 1.5vh !important; } /* Adjusted as button is hidden */
     #MouseGlow, #MouseGlowBlur { display: none; }
 }
 
@@ -404,13 +412,9 @@ m {
     .NavItemText { font-size: clamp(1.7vh, 3.5vw, 1.9vh); }
     .NavItemDot { width: 0.9vh; height: 0.9vh; }
 
-    #MainButton { padding: 0 2.5vh; height: 6vh; border-radius: 3vh; bottom: 3vh; }
-    #ButtonText { font-size: 1.6vh; }
-    #ButtonArrow { font-size: 2.8vh; }
-    #MainButton:hover #ButtonText { font-size: 1.7vh; }
-    #MainButton:hover #ButtonArrow { font-size: 3vh; }
+    /* #MainButton specific styles for mobile are not needed if it's hidden by the 992px breakpoint */
 
     .Section { margin-bottom: 5vh; }
     #SocialsContainer img { width: 2.8vh; height: 2.8vh; max-width: 28px; max-height: 28px; }
-    #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 12vh !important; font-size: 1.4vh !important; }
+    #RightPanel > p[style*="padding-bottom: 95.0vh"] { padding-bottom: 5vh !important; font-size: 1.4vh !important; } /* Adjusted as button is hidden */
 }
