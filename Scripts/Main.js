@@ -604,26 +604,49 @@ const MainDiv = document.getElementById("MainDiv");
 
 MainButton.onclick = function() {ChangeState();};
 
-function ChangeState()
-{
-    // Rotate arrow inside the main button
-    let Rotation = parseInt((MainButton.style.transform || "0").match(/\d+/)) + 180;
-    MainButton.style.transform = `rotateZ(${Rotation}deg)`;
+function ChangeState() {
+    const buttonTextElement = document.getElementById("ButtonText");
+    const buttonArrowElement = document.getElementById("ButtonArrow");
+    let currentArrowRotation = parseInt((buttonArrowElement.style.transform || "rotateZ(0deg)").match(/-?\d+/) || 0);
 
-    if (State === "Modern")
-    {
+    if (State === "Modern") {
         State = "Retro";
         MainDiv.classList.add("hidden");
-
+        buttonTextElement.dataset.value = "Close terminal"; // Set new target text
         Canvas.focus();
         requestAnimationFrame(UpdateScene);
-    }
-
-    else
-    {
+    } else {
         State = "Modern";
         MainDiv.classList.remove("hidden");
+        buttonTextElement.dataset.value = "Open Terminal"; // Set new target text
     }
+
+    // Apply text effect to button text
+    let iteration = 0;
+    const originalText = buttonTextElement.dataset.value; // Target text for the effect
+
+    let interval = setInterval(() => {
+        buttonTextElement.innerText = originalText
+            .split("")
+            .map((letter, index) => {
+                if (index < iteration || originalText[index] === " ") {
+                    return originalText[index];
+                }
+                return Letters[Math.floor(Math.random() * Letters.length)];
+            })
+            .join("");
+
+        if (iteration >= originalText.length) {
+            clearInterval(interval);
+            buttonTextElement.innerText = originalText; // Ensure final text is correct
+        }
+        iteration += 1 / 2; // Adjust speed if necessary
+    }, 30);
+
+
+    // Rotate arrow
+    currentArrowRotation += 180;
+    buttonArrowElement.style.transform = `rotateZ(${currentArrowRotation}deg)`;
 
     requestAnimationFrame(FadeAudio);
 }
