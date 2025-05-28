@@ -121,14 +121,14 @@ function KeyPressed(key) {
 function BootSequence() {
     OutputsText = "";
     let LoadingChars = ["-", "\\", "|", "/"];
-    
+
     if (Time > 0.1) { OutputsText += "███╗   ███╗██╗██╗     ████╗   ██████╗     █████╗  \n"; }
     if (Time > 0.2) { OutputsText += "████╗ ████║██║██║     ██╔═██╗ ██╔══██╗   ██╔══██╗ \n"; }
     if (Time > 0.3) { OutputsText += "██╔████╔██║██║██║     ██████║ ██║  ██║   ███████║ \n"; }
     if (Time > 0.4) { OutputsText += "██║╚██╔╝██║██║██║     ██╔═██║ ██║  ██║   ██╔══██║ \n"; }
     if (Time > 0.5) { OutputsText += "██║ ╚═╝ ██║██║███████╗██║ ██║ ██████╔╝██╗██║  ██║ \n"; }
     if (Time > 0.6) { OutputsText += "╚═╝     ╚═╝╚═╝╚══════╝╚═╝ ╚═╝ ╚═════╝ ╚═╝╚═╝  ╚═╝\n\n\n"; }
-    if (Time > 1.1) { OutputsText += "Welcome to Milad.A 1.0.0 x86_64\n"; }
+    if (Time > 1.1) { OutputsText += "Welcome to Milad.A 1.2.7 x86_64\n"; }
     if (Time > 1.2) { OutputsText += "Type 'help' to list available commands\n\n\n"; }
     if (Time > 1.7) { OutputsText += `Loading ${LoadingChars[Math.ceil((Math.min(3.7, Time) % 0.4) / 0.1) - 1]} ${Math.ceil(Math.min(100, (Time - 1.7) / 0.02))}%\n`; }
     if (Time > 3.7) { OutputsText += ".\n"; }
@@ -159,7 +159,8 @@ const FileSystem = {
             },
             "about.txt": { type: "file", content: "Driven and detail-oriented technologist with a solid foundation in programming, embedded systems,\nand full-stack web development. Proficient in Python (core strength), C, Java, JavaScript, and C++,\nwith hands-on experience in building responsive web dashboards, smart IoT systems using Arduino, and\nrobust software solutions. Adept at object-oriented design, DNS management, and site monitoring,\nwith a strong command of tools like CLion, IntelliJ and Pycharm and modern frameworks like Tailwind\nCSS, Pandas and more. A quick learner and natural problem solver, passionate about bridging hardware\nand software to create impactful,real-world applications. Known for clear communication, leadership,\nand a commitment to delivering high-quality results." },
             "experience.txt": { type: "file", content: "Freelance Web Developer & AI Enthusiast\n\nProfessional Projects | 2023 - Present\n- Website Project: Yuva Global Enterprises (2025)\n  - Developed and deployed a website for a local business using HTML, CSS, and JavaScript on\n    InfinityFree's free hosting platform.\n  - Implemented responsive design principles to ensure optimal viewing across various devices.\n  - Configured DNS settings and managed domain-related issues, including addressing\n    accessibility challenges due to the hosting domain's reputation.\n  - Monitored site performance and uptime, ensuring consistent availability and swift load times.\n\nPersonal Projects | 2023 - Present\n- Developed this interactive online resume website:\n  - Designed and built a responsive, single-page application using HTML, Tailwind CSS, and\n    modern JavaScript.\n  - Focused on creating a clean, user-friendly interface to effectively showcase skills,\n    projects, and educational background." },
-            "education.txt": { type: "file", content: "Placeholder University Name\nBachelor of Science in Placeholder Major | Expected Graduation: Month Year\nRelevant Coursework: Placeholder Course 1, Placeholder Course 2, Placeholder Course 3.\nActivities: Placeholder Club/Activity 1, Placeholder Club/Activity 2.\n\nPlaceholder High School Name\nHigh School Diploma | Graduated: Month Year\nAchievements: Placeholder Achievement 1, Placeholder Achievement 2." },
+            "education.txt": { type: "file", content: "Central University of Kashmir, Gaderbal\nBachelor of Technology (B.Tech), CSE | Expected Graduation: July 2027\nRelevant Coursework: C, Java.\nActivities: Coding Competition, Event Management.\n\nSri Pratap Higher Secondary School, Srinagar\nHigh School Diploma | Graduated: 2022\nRelevant Coursework: Non-Medical.\nActivities: Badminton, Football, Table Tennis." },
+            "awards.txt": { type: "file", content: "3rd prize in Coding Competition | Central University of Kashmir | 2025\nCode Squad hosted a coding competition during their Cyber Concave 2025 event." },
             "plasma.exe": { type: "executable", content: "plasma" },
         }
     },
@@ -218,7 +219,7 @@ function StartFile(InputFile) {
         } else if (fileData.type === "link") {
             OutputsText += `\nOpening link: ${fileData.content}\n`;
             if (fileData.description) {
-                 OutputsText += `Description: ${fileData.description}\n\n`;
+                OutputsText += `Description: ${fileData.description}\n\n`;
             } else {
                 OutputsText += `\n`;
             }
@@ -299,14 +300,14 @@ function AutoComplete() {
         for (let Dir of Directory.slice(15).split("/").filter(Boolean)) { DirectoryContents = DirectoryContents.contents[Dir]; }
 
         const PossibleCompletions = Object.keys(DirectoryContents.contents).filter(Item => Item.startsWith(Argument1));
-        
+
         if (PossibleCompletions.length === 1) { InputText = `${Command} ${PossibleCompletions[0]}`; }
         else if (PossibleCompletions.length > 1) {
             OutputsText += `\n${Directory}> ${InputText}\n`;
             OutputsText += PossibleCompletions.join("  ") + "\n";
         }
     }
-     Blinker.Index = InputText.length; // Ensure blinker is at the end after autocomplete
+    Blinker.Index = InputText.length; // Ensure blinker is at the end after autocomplete
 }
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
