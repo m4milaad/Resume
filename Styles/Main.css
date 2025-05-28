@@ -12,8 +12,11 @@ canvas {
 }
 
 #MainButton {
-    width: 7.5vh;
+    /* width: 7.5vh; */
+    /* Adjusted width to auto for text */
     height: 7.5vh;
+    padding: 0 2vh;
+    /* Added padding for text */
 
     position: fixed;
     left: 50vw;
@@ -21,19 +24,57 @@ canvas {
     translate: -50% -50%;
 
     color: white;
-    font-size: 3.5vh; /* Increased from 3vh */
+    /* font-size: 3.5vh; */
+    /* Font size is now on #ButtonText */
     text-align: center;
-    
+
     background-color: black;
     border: 1px solid rgb(100, 100, 100);
-    border-radius: 50%;
-    
-    transition: font-size 0.15s ease, transform 0.25s ease;
+    border-radius: 3.75vh;
+    /* Adjusted for a more pill-like shape */
+
+    transition: transform 0.25s ease;
+    /* Removed font-size transition here */
     cursor: pointer;
+    display: flex;
+    /* Added for aligning text and arrow */
+    align-items: center;
+    /* Added for aligning text and arrow */
+    justify-content: center;
+    /* Added for aligning text and arrow */
+}
+
+#MainButton:hover #ButtonText {
+    /* Apply hover effect to text */
+    font-size: 2.5vh;
+}
+
+#MainButton:hover #ButtonArrow {
+    /* Apply hover effect to arrow */
+    font-size: 4.5vh;
+}
+
+
+#ButtonText {
+    font-size: 2vh;
+    margin-right: 1vh;
+    /* Space between text and arrow */
+    transition: font-size 0.15s ease;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+}
+
+#ButtonArrow {
+    font-size: 3.5vh;
+    display: inline-block;
+    /* Allows transform */
+    transition: font-size 0.15s ease, transform 0.25s ease;
+    /* Keep arrow transform */
 }
 
 #MainButton:hover {
-    font-size: 4.5vh; /* Increased from 4vh */
+    font-size: 4.5vh;
+    /* Increased from 4vh */
 }
 
 #MainDiv {
@@ -43,7 +84,8 @@ canvas {
     position: fixed;
     top: 0;
     left: 0;
-    overflow: hidden;/* auto */
+    overflow: hidden;
+    /* auto */
 
     background-color: rgb(26, 26, 26);
     transition: transform 0.5s ease-in-out;
@@ -55,9 +97,9 @@ canvas {
 }
 
 #LeftPanel {
-    width: calc(50vw - 20vh); 
+    width: calc(50vw - 20vh);
     height: 100%;
-    left: 20vh; 
+    left: 20vh;
     position: absolute;
     margin-top: 10vh;
     pointer-events: none;
@@ -66,20 +108,20 @@ canvas {
 #RightPanel {
     height: 100%;
     position: absolute;
-    left: 50vw;   
-    right: 0;     
-    width: auto;  
-    
-    padding: 10vh 20vh 0 2vh; 
+    left: 50vw;
+    right: 0;
+    width: auto;
+
+    padding: 10vh 20vh 0 2vh;
 
     overflow-y: scroll;
     overflow-x: hidden;
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-#RightPanel::-webkit-scrollbar{
-    display: none; 
+#RightPanel::-webkit-scrollbar {
+    display: none;
 }
 
 #MouseGlow {
@@ -104,7 +146,8 @@ canvas {
 }
 
 h1 {
-    font-size: 7.0vh; /* Increased from 6.5vh */
+    font-size: 7.0vh;
+    /* Increased from 6.5vh */
     margin: 0 0 1vh 0;
     color: white;
     font-weight: bold;
@@ -112,7 +155,8 @@ h1 {
 }
 
 h2 {
-    font-size: 2.8vh; /* Increased from 2.5vh */
+    font-size: 2.8vh;
+    /* Increased from 2.5vh */
     margin: 0 0 1.5vh 0;
     color: white;
     font-weight: normal;
@@ -120,10 +164,12 @@ h2 {
 }
 
 p {
-    font-size: 2.0vh; /* Increased from 1.8vh */
+    font-size: 2.0vh;
+    /* Increased from 1.8vh */
     margin: 0;
     color: gray;
-    line-height: 3.0vh; /* Increased from 2.7vh */
+    line-height: 3.0vh;
+    /* Increased from 2.7vh */
     pointer-events: auto;
 }
 
@@ -158,7 +204,8 @@ m {
 
 .NavItemText {
     margin-left: 1.1vh;
-    font-size: 2.0vh; /* Increased from 1.8vh */
+    font-size: 2.0vh;
+    /* Increased from 1.8vh */
     color: gray;
     transition: color 0.3s ease;
 }
@@ -194,8 +241,8 @@ m {
 }
 
 #SocialsContainer a:hover {
-     transform: scale(1.1);
-     filter: invert(100%) brightness(100%);
+    transform: scale(1.1);
+    filter: invert(100%) brightness(100%);
 }
 
 .Project {
@@ -214,7 +261,8 @@ m {
 
 .Project p {
     user-select: none;
-    font-size: 1.8vh; /* Increased from 1.6vh */
+    font-size: 1.8vh;
+    /* Increased from 1.6vh */
     color: gray;
 }
 
