@@ -654,8 +654,9 @@ function ChangeState() {
 const MouseGlow = document.getElementById("MouseGlow");
 
 // Make mouse glow follow mouse
+
 window.addEventListener("mousemove", (event) => {
-    MouseGlow.animate({left: `${event.clientX}px`, top: `${event.clientY}px`}, {duration: 3500, fill: "forwards"});
+    MouseGlow.animate({left: `${event.clientX}px`, top: `${event.clientY}px`}, {duration: 2000, fill: "forwards"});
 });
 
 // Scrollspy logic // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
@@ -663,46 +664,16 @@ const leftPanelForScrollListener = document.getElementById('LeftPanel');
 const rightPanelForScrollListener = document.getElementById('RightPanel'); // This is 'RightPanel' from scrollspy logic
 
 if (leftPanelForScrollListener && rightPanelForScrollListener) {
-    window.addEventListener('wheel', function(event) {
-        // Check if the 'State' variable is defined and if it's "Modern"
-        // This ensures the logic only applies to the resume view, not the terminal
-        if (typeof State !== 'undefined' && State !== "Modern") {
-            return;
-        }
+    const rightPanel = document.getElementById("RightPanel");
 
-        // Determine if the event's target is the RightPanel or one of its children
-        let targetElement = event.target;
-        let isEventOnRightPanelOrChild = false;
-        while (targetElement && targetElement !== document.body) {
-            if (targetElement === rightPanelForScrollListener) {
-                isEventOnRightPanelOrChild = true;
-                break;
-            }
-            targetElement = targetElement.parentElement;
-        }
+window.addEventListener("wheel", (event) => {
+    if (typeof State !== "undefined" && State !== "Modern") return;
 
-        if (isEventOnRightPanelOrChild) {
-            // If the scroll event is already happening on/in the RightPanel,
-            // let the browser and existing listeners handle it.
-            return;
-        }
-        
-        // Get the current screen coordinates of the LeftPanel
-        const leftPanelRect = leftPanelForScrollListener.getBoundingClientRect();
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
+    // Always scroll the RightPanel
+    event.preventDefault();
+    rightPanel.scrollTop += event.deltaY;
+}, { passive: false });
 
-        // Check if the mouse cursor is currently over the LeftPanel's geometric area
-        const isMouseOverLeftPanelArea = mouseX >= leftPanelRect.left && mouseX <= leftPanelRect.right &&
-                                         mouseY >= leftPanelRect.top && mouseY <= leftPanelRect.bottom;
-
-        if (isMouseOverLeftPanelArea) {
-            // Prevent the default scroll action (e.g., scrolling the window or Canvas3D)
-            event.preventDefault();
-            // Apply the scroll delta to the RightPanel's scrollTop
-            rightPanelForScrollListener.scrollTop += event.deltaY;
-        }
-    }, { passive: false }); // 'passive: false' is needed because we're calling event.preventDefault()
 }
 
 const RightPanel = document.getElementById("RightPanel")
@@ -719,12 +690,25 @@ function SetActiveSection()
 }
 
 // Function to scroll to selected section when scroll spy clicked
-function ScrollToSection(event)
-{
+function ScrollToSection(event) {
     const SectionId = event.currentTarget.getAttribute('DataSection');
     const TargetSection = document.getElementById(SectionId);
-    RightPanel.scrollTo({top: TargetSection.offsetTop - window.innerHeight * 0.1, behavior: "smooth"});
+
+    if (window.innerWidth > 992) {
+        // Desktop view — scroll RightPanel only
+        RightPanel.scrollTo({
+            top: TargetSection.offsetTop - window.innerHeight * 0.1,
+            behavior: "smooth"
+        });
+    } else {
+        // Mobile view — scroll the whole window
+        window.scrollTo({
+            top: TargetSection.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.1,
+            behavior: "smooth"
+        });
+    }
 }
+
 
 NavItems.forEach(item => item.addEventListener("click", ScrollToSection));
 RightPanel.addEventListener("scroll", SetActiveSection);
