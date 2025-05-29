@@ -446,9 +446,20 @@ m {
         font-size: 1.5vh !important;
     }
 
-    #MouseGlow,
-    #MouseGlowBlur {
-        display: none;
+      /* Keep glow visible for mouse users */
+    @media (hover: hover) and (pointer: fine) {
+        #MouseGlow,
+        #MouseGlowBlur {
+            display: block;
+        }
+    }
+
+    /* Otherwise (touch-only devices), still hide */
+    @media (hover: none) and (pointer: coarse) {
+        #MouseGlow,
+        #MouseGlowBlur {
+            display: none;
+        }
     }
 }
 

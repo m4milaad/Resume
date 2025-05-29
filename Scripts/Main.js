@@ -654,7 +654,6 @@ function ChangeState() {
 const MouseGlow = document.getElementById("MouseGlow");
 
 // Make mouse glow follow mouse
-
 window.addEventListener("mousemove", (event) => {
     MouseGlow.animate({left: `${event.clientX}px`, top: `${event.clientY}px`}, {duration: 3500, fill: "forwards"});
 });
@@ -664,17 +663,45 @@ const leftPanelForScrollListener = document.getElementById('LeftPanel');
 const rightPanelForScrollListener = document.getElementById('RightPanel'); // This is 'RightPanel' from scrollspy logic
 
 if (leftPanelForScrollListener && rightPanelForScrollListener) {
-    const rightPanel = document.getElementById("RightPanel");
+    window.addEventListener('wheel', function(event) {
+        // Only allow this logic on desktop-like viewports
+        const isDesktopView = window.innerWidth > 992;
 
-window.addEventListener("wheel", (event) => {
-    if (typeof State !== "undefined" && State !== "Modern") return;
+        if (!isDesktopView || typeof State === 'undefined' || State !== "Modern") {
+            return; // Exit early on mobile or when not in Modern state
+        }
 
-    // Always scroll the RightPanel
-    event.preventDefault();
-    rightPanel.scrollTop += event.deltaY;
-}, { passive: false });
+        let targetElement = event.target;
+        let isEventOnRightPanelOrChild = false;
+        while (targetElement && targetElement !== document.body) {
+            if (targetElement === rightPanelForScrollListener) {
+                isEventOnRightPanelOrChild = true;
+                break;
+            }
+            targetElement = targetElement.parentElement;
+        }
 
+        if (isEventOnRightPanelOrChild) {
+            return;
+        }
+
+        const leftPanelRect = leftPanelForScrollListener.getBoundingClientRect();
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        const isMouseOverLeftPanelArea =
+            mouseX >= leftPanelRect.left &&
+            mouseX <= leftPanelRect.right &&
+            mouseY >= leftPanelRect.top &&
+            mouseY <= leftPanelRect.bottom;
+
+        if (isMouseOverLeftPanelArea) {
+            event.preventDefault();
+            rightPanelForScrollListener.scrollTop += event.deltaY;
+        }
+    }, { passive: false });
 }
+
 
 const RightPanel = document.getElementById("RightPanel")
 const NavItems = document.querySelectorAll(".NavItem");
@@ -690,25 +717,12 @@ function SetActiveSection()
 }
 
 // Function to scroll to selected section when scroll spy clicked
-function ScrollToSection(event) {
+function ScrollToSection(event)
+{
     const SectionId = event.currentTarget.getAttribute('DataSection');
     const TargetSection = document.getElementById(SectionId);
-
-    if (window.innerWidth > 992) {
-        // Desktop view — scroll RightPanel only
-        RightPanel.scrollTo({
-            top: TargetSection.offsetTop - window.innerHeight * 0.1,
-            behavior: "smooth"
-        });
-    } else {
-        // Mobile view — scroll the whole window
-        window.scrollTo({
-            top: TargetSection.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.1,
-            behavior: "smooth"
-        });
-    }
+    RightPanel.scrollTo({top: TargetSection.offsetTop - window.innerHeight * 0.1, behavior: "smooth"});
 }
-
 
 NavItems.forEach(item => item.addEventListener("click", ScrollToSection));
 RightPanel.addEventListener("scroll", SetActiveSection);
