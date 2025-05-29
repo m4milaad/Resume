@@ -717,11 +717,23 @@ function SetActiveSection()
 }
 
 // Function to scroll to selected section when scroll spy clicked
-function ScrollToSection(event)
-{
+function ScrollToSection(event) {
     const SectionId = event.currentTarget.getAttribute('DataSection');
     const TargetSection = document.getElementById(SectionId);
-    RightPanel.scrollTo({top: TargetSection.offsetTop - window.innerHeight * 0.1, behavior: "smooth"});
+
+    if (window.innerWidth > 992) {
+        // Desktop view — scroll RightPanel only
+        RightPanel.scrollTo({
+            top: TargetSection.offsetTop - window.innerHeight * 0.1,
+            behavior: "smooth"
+        });
+    } else {
+        // Mobile view — scroll the whole window
+        window.scrollTo({
+            top: TargetSection.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.1,
+            behavior: "smooth"
+        });
+    }
 }
 
 NavItems.forEach(item => item.addEventListener("click", ScrollToSection));
