@@ -151,7 +151,7 @@ const FileSystem = {
                     "online_resume.lnk": { type: "link", content: "#", description: "Developed a responsive personal online resume website using HTML, Tailwind CSS, and JavaScript." },
                     "yge_website.lnk": { type: "link", content: "https://yge.ct.ws/", description: "Deployed a responsive website for Yuva Global Enterprises using HTML, CSS, JavaScript, and managed DNS." },
                     "banking_system.lnk": { type: "link", content: "https://github.com/m4milaad/Banking-System-", description: "Developed an object-oriented banking system application using Java." },
-                    "Peek_hour_game.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/Peek%20Hour", description: "An interactive game built with Python." },
+                    "peek_hour_game.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/Peek%20Hour", description: "An interactive game built with Python." },
                     "states_game.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/States%20Guessing%20Game", description: "Created an interactive U.S. states guessing game with Python." },
                     "coffee_machine.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/Coffee%20Machine", description: "Simulated coffee machine operations using an object-oriented approach in Python." },
                     "more_projects.txt": { type: "file", content: "Developed a diverse portfolio of 17+ additional projects, primarily in Python, including games, data tools, and simulations." }
