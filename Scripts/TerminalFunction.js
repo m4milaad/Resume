@@ -154,7 +154,7 @@ const FileSystem = {
                     "peek_hour_game.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/Peek%20Hour", description: "An interactive game built with Python." },
                     "states_game.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/States%20Guessing%20Game", description: "Created an interactive U.S. states guessing game with Python." },
                     "coffee_machine.lnk": { type: "link", content: "https://github.com/m4milaad/Pyhton-Projects/tree/main/Coffee%20Machine", description: "Simulated coffee machine operations using an object-oriented approach in Python." },
-                    "more_projects.txt": { type: "file", content: "Developed a diverse portfolio of 17+ additional projects, primarily in Python, including games, data tools, and simulations." }
+                    "more_projects.txt": { type: "file", content: "Developed a diverse portfolio of 17+ additional \nprojects, primarily in Python, including games, \ndata tools, and simulations." }
                 }
             },
             "about.txt": { type: "file", content: "Skilled in programming and building both software\nand hardware projects, including web dashboards and\nIoT systems. Experienced with Python, C, Java, and \nmodern tools to deliver reliable, working solutions." },
