@@ -634,7 +634,7 @@ function ChangeState() {
                 }
                 return Letters[Math.floor(Math.random() * Letters.length)];
             })
-            .join("");
+            .join("");  
 
         if (iteration >= originalText.length) {
             clearInterval(interval);
