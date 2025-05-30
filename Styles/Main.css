@@ -1,6 +1,3 @@
-/* Resume/Styles/Main.css - Starting from User's Original Base */
-
-/* ======== Global Resets & Body Styling ======== */
 html {
     height: 100%;
     margin: 0;
@@ -17,8 +14,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    /* Ensure no padding on body */
-    height: 100vh;
+        height: 100vh;
     overflow: hidden;
     font-family: Arial, sans-serif;
     background-color: rgb(26, 26, 26);
@@ -389,7 +385,6 @@ m {
         padding-bottom: 5vh;
     }
 
-    /* Adjust typography for tablets */
     h1 {
         font-size: clamp(4.5vh, 8vw, 6vh);
         margin-bottom: 2vh;
@@ -440,7 +435,6 @@ m {
         font-size: 1.5vh !important;
     }
 
-      /* Keep glow visible for mouse users */
     @media (hover: hover) and (pointer: fine) {
         #MouseGlow,
         #MouseGlowBlur {
@@ -448,7 +442,6 @@ m {
         }
     }
 
-    /* Otherwise (touch-only devices), still hide */
     @media (hover: none) and (pointer: coarse) {
         #MouseGlow,
         #MouseGlowBlur {
@@ -487,7 +480,6 @@ m {
         height: 0.9vh;
     }
 
-    /* #MainButton specific styles for mobile are not needed if it's hidden by the 992px breakpoint */
 
     .Section {
         margin-bottom: 5vh;

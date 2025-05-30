@@ -5,7 +5,8 @@ const Canvas = document.getElementById("Canvas3D");
 // Initialize the WebGL2 context
 const WebGL = Canvas.getContext("webgl2");
 
-if (!WebGL) {
+if (!WebGL)
+{
     alert("WebGL2 is not available.");
 }
 
@@ -252,7 +253,8 @@ WebGL.attachShader(ShaderProgram, VertexShader);
 WebGL.attachShader(ShaderProgram, FragmentShader);
 WebGL.linkProgram(ShaderProgram);
 
-if (!WebGL.getProgramParameter(ShaderProgram, WebGL.LINK_STATUS)) {
+if (!WebGL.getProgramParameter(ShaderProgram, WebGL.LINK_STATUS))
+{
     alert("Unable to initialize the shader program: " + WebGL.getProgramInfoLog(ShaderProgram));
 }
 
@@ -266,7 +268,7 @@ const ProgramInfo = {
         SurfaceColor: WebGL.getAttribLocation(ShaderProgram, "InSurfaceColor"),
     },
 
-    UniformLocations:
+    UniformLocations: 
     {
         VertexTransformationMatrix: WebGL.getUniformLocation(ShaderProgram, "VertexTransformationMatrix"),
         NormalTransformationMatrix: WebGL.getUniformLocation(ShaderProgram, "NormalTransformationMatrix"),
@@ -340,13 +342,14 @@ TextCanvas.width = TextCanvas.height = 1024;
 // Create texture
 const TextTexture = WebGL.createTexture();
 
-function UpdateTextTexture(NewText) {
+function UpdateTextTexture(NewText)
+{
     // Render text on the canvas
     Context.clearRect(0, 0, TextCanvas.width, TextCanvas.height);
     Context.font = "32px monospace";//"32px VT323, monospace";
     Context.fillStyle = "rgb(255, 150, 50)"; // Orange
     //Context.fillStyle = "rgb(125, 255, 50)"; // Green
-
+    
     const Lines = NewText.split("\n");
     Lines.forEach((Line, i) => {
         Context.fillText(Line, 32, 64 + i * 32);
@@ -377,7 +380,8 @@ let MouseDown = false;
 
 // Check if left mouse button down
 Canvas.addEventListener("mousedown", (event) => {
-    if (event.button === 0) {
+    if(event.button === 0)
+    {
         MouseDown = true;
         MouseOffset = MousePosition;
     }
@@ -387,7 +391,8 @@ Canvas.addEventListener("mousedown", (event) => {
 
 // Check if left mouse button up
 Canvas.addEventListener("mouseup", (event) => {
-    if (event.button === 0) {
+    if(event.button === 0)
+    {
         MouseDown = false;
     }
 
@@ -408,7 +413,8 @@ let CurrentlyPressedKey = null;
 
 // Event listener for keydown
 Canvas.addEventListener("keydown", (event) => {
-    if (!["Enter", CurrentlyPressedKey].includes(event.key)) {
+    if (!["Enter", CurrentlyPressedKey].includes(event.key))
+    {
         KeyboardPressed.play();
         KeyboardPressed.currentTime = 0;
     }
@@ -444,9 +450,11 @@ let Time = 0;
 let LastTime = 0;
 
 // Draw the scene
-function UpdateScene(CurrentTime) {
+function UpdateScene(CurrentTime)
+{
     // Check if this is first render
-    if (Time == 0) {
+    if (Time == 0)
+    {
         // Play boot and ambient sounds
         ComputerBoot.play();
         ComputerAmbient.play();
@@ -473,13 +481,15 @@ function UpdateScene(CurrentTime) {
     // Resize the canvas if necessary
     ResizeCanvasToDisplaySize(WebGL.canvas)
 
-    if (MouseDown) {
+    if (MouseDown)
+    {
         // Update rotation over time
         Rotation[0] += 0.1 * ((MousePosition[1] - MouseOffset[1]) / (WebGL.canvas.clientHeight * 2) - Rotation[0]);
         Rotation[1] += 0.1 * ((MousePosition[0] - MouseOffset[0]) / (WebGL.canvas.clientWidth * 2) - Rotation[1]);
     }
 
-    else {
+    else
+    {
         // Decay rotation over time
         Rotation[0] *= 0.95;
         Rotation[1] *= 0.95;
@@ -561,26 +571,29 @@ function UpdateScene(CurrentTime) {
     WebGL.drawArrays(WebGL.TRIANGLES, 0, TriangleCount);
 
     // Schedule the next frame
-    if (State === "Retro") { requestAnimationFrame(UpdateScene); }
+    if (State === "Retro") {requestAnimationFrame(UpdateScene);}
 }
 
 // None 3d rendering stuff // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
-function FadeAudio() {
+function FadeAudio()
+{
     // Fade audio out
-    if (State === "Modern") {
+    if (State === "Modern")
+    {
         ComputerBoot.volume = Math.max(0, ComputerBoot.volume - (0.5 / 30));
         ComputerAmbient.volume = Math.max(0, ComputerAmbient.volume - (0.25 / 30));
 
-        if (ComputerBoot.volume > 0) { requestAnimationFrame(FadeAudio); }
+        if (ComputerBoot.volume > 0) {requestAnimationFrame(FadeAudio);}
     }
 
     // Fade audio in
-    else {
+    else
+    {
         ComputerBoot.volume = Math.min(0.5, ComputerBoot.volume + (0.5 / 30));
         ComputerAmbient.volume = Math.min(0.25, ComputerAmbient.volume + (0.25 / 30));
 
-        if (ComputerBoot.volume < 0.5) { requestAnimationFrame(FadeAudio); }
+        if (ComputerBoot.volume < 0.5) {requestAnimationFrame(FadeAudio);}
     }
 }
 
@@ -589,7 +602,7 @@ let State = "Modern";
 const MainButton = document.getElementById("MainButton");
 const MainDiv = document.getElementById("MainDiv");
 
-MainButton.onclick = function () { ChangeState(); };
+MainButton.onclick = function() {ChangeState();};
 
 function ChangeState() {
     const buttonTextElement = document.getElementById("ButtonText");
@@ -642,7 +655,7 @@ const MouseGlow = document.getElementById("MouseGlow");
 
 // Make mouse glow follow mouse
 window.addEventListener("mousemove", (event) => {
-    MouseGlow.animate({ left: `${event.clientX}px`, top: `${event.clientY}px` }, { duration: 3500, fill: "forwards" });
+    MouseGlow.animate({left: `${event.clientX}px`, top: `${event.clientY}px`}, {duration: 3500, fill: "forwards"});
 });
 
 // Scrollspy logic // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
@@ -653,7 +666,7 @@ const rightPanelForScrollListener = document.getElementById('RightPanel'); // Th
 // are accessible in this scope from your Main.js file.
 
 if (leftPanelForScrollListener && rightPanelForScrollListener) {
-    window.addEventListener('wheel', function (event) {
+    window.addEventListener('wheel', function(event) {
         const isDesktopView = window.innerWidth > 992;
 
         // Only apply custom scroll logic if in "Modern" state.
@@ -681,11 +694,11 @@ if (leftPanelForScrollListener && rightPanelForScrollListener) {
             if (isEventDirectlyOnRightPanelAndHandled) {
                 return;
             }
-            event.preventDefault();
+            event.preventDefault(); 
             rightPanelForScrollListener.scrollTop += event.deltaY;
 
         } else {
-
+           
         }
     }, { passive: false });
 }
@@ -694,9 +707,10 @@ const NavItems = document.querySelectorAll(".NavItem");
 const Sections = document.querySelectorAll(".Section");
 
 // Function to detect which section user is scrolled to currently
-function SetActiveSection() {
+function SetActiveSection()
+{
     let Index = Sections.length;
-    while (--Index && RightPanel.scrollTop + 150 < Sections[Index].offsetTop) { }
+    while(--Index && RightPanel.scrollTop + 150 < Sections[Index].offsetTop) {}
     NavItems.forEach((item) => item.classList.remove('Active'));
     NavItems[Index].classList.add('Active');
 }
@@ -738,29 +752,29 @@ Projects.forEach(Project => {
 
         // For every text object in item
         event.target.querySelectorAll("p").forEach(Text => {
-
+    
             let Iteration = 0;
-
+            
             let Interval = setInterval(() => {
-
+                
                 // Split text into its letters
                 Text.innerText = Text.innerText.split("")
+                
+                // Assign each letter a new value
+                .map((letter, index) => {
+                
+                    // Return original letter
+                    if(index < Iteration || Text.dataset.value[index] == " ") { return Text.dataset.value[index]; }
 
-                    // Assign each letter a new value
-                    .map((letter, index) => {
-
-                        // Return original letter
-                        if (index < Iteration || Text.dataset.value[index] == " ") { return Text.dataset.value[index]; }
-
-                        // Return random letter
-                        return Letters[Math.floor(Math.random() * 36)]
-
-                    }).join(""); // Join the word back togeather from the letters
-
-                if (Iteration >= Text.dataset.value.length) { clearInterval(Interval); }
-
+                    // Return random letter
+                    return Letters[Math.floor(Math.random() * 36)]
+                
+                }).join(""); // Join the word back togeather from the letters
+                
+                if(Iteration >= Text.dataset.value.length){ clearInterval(Interval); }
+                
                 Iteration += 1;
-
+                
             }, 30);
         });
     });
